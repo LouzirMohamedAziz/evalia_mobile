@@ -328,7 +328,7 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
       backgroundColor: Color.fromARGB(255, 162, 209, 233),
       appBar: AppBar(
         title: Text('Search Results'),
-        backgroundColor: Color.fromARGB(255, 195, 233, 255),
+        backgroundColor: Color.fromARGB(255, 1, 2, 3),
       ),
       body: ListView.builder(
         itemCount: searchResults.length,
