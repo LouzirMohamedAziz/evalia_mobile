@@ -1,6 +1,6 @@
 # evalia_flutter
 
-A new Flutter project.
+Evalia mobile app: A flutter cross-platform mobile application for actors, sectors and sub-sectors ratings and performances indicators
 
 ## Getting Started
 
