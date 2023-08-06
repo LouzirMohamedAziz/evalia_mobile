@@ -249,7 +249,7 @@ class RatingsPage extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               width: 150,
               height: 50,
               child: ElevatedButton.icon(
