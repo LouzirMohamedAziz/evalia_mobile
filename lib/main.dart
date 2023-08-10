@@ -2,6 +2,8 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'authentication/sign_in.dart';
+
 // Author: Mohamed Aziz LOUZIR
 void main() {
   runApp(MyApp());
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
             ThemeData(brightness: Brightness.dark), // If we will use theme dark
         themeMode:
             ThemeMode.light, // in Here we choose the Theme, dark or light
-        home: MyHomePage(),
+        home: const SignIn(), // MyHomePage(), //
       ),
     );
   }

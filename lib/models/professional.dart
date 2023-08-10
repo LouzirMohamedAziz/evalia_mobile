@@ -1,6 +1,6 @@
-import 'package:namer_app/src/features/models/Country.dart';
-import 'package:namer_app/src/features/models/Entity.dart';
-import 'package:namer_app/src/features/models/sector.dart';
+import 'country.dart';
+import 'entity.dart';
+import 'sector.dart';
 
 class Professional extends Entity {
   final String tin;

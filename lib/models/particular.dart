@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
-import 'package:namer_app/src/features/models/country.dart';
-import 'package:namer_app/src/features/models/entity.dart';
+import 'country.dart';
+import 'entity.dart';
 
 class Particular extends Entity {
   final Long userId;
