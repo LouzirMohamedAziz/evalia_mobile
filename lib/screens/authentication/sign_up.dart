@@ -62,8 +62,8 @@ class _SignUpState extends State<SignUp> {
                 SizedBox(
                   height: 20,
                 ),
-                textField("Enter Your Password", Icons.lock_outline, true,
-                    _passwordTextController),
+                passwordtextField("Enter Your Password", Icons.lock_outline,
+                    true, _passwordTextController),
                 SizedBox(
                   height: 30,
                 ),
