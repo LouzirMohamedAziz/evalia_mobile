@@ -66,9 +66,10 @@ class WelcomePage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
-        Color.fromARGB(255, 68, 158, 219),
-        Color.fromARGB(255, 6, 80, 145),
-        Color.fromARGB(255, 4, 39, 58)
+        Color.fromARGB(255, 132, 202, 240),
+        Color.fromARGB(255, 53, 135, 206),
+        Color.fromARGB(255, 7, 106, 160),
+        Color.fromARGB(255, 13, 58, 82)
       ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       child: Column(children: [
         AppBar(
