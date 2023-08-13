@@ -3,17 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-import 'authentication/sign_in.dart';
 import 'firebase_options.dart';
-
->>>>>>> Stashed changes
-=======
 import 'screens/authentication/sign_in.dart';
 
->>>>>>> main
 // Author: Mohamed Aziz LOUZIR
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
