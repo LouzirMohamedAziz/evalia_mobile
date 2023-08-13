@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "796639073022",
+    "project_id": "signinsignup-dad5a",
+    "storage_bucket": "signinsignup-dad5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796639073022:android:bf0a2aa454cdce684f8baf",
+        "android_client_info": {
+          "package_name": "com.example.evalia_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796639073022-417u5sjfocf8ga5n4v8mb1stgg7minga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4gHNePt_PJL2MfYrUZ4HImGwRD8cZF98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796639073022-417u5sjfocf8ga5n4v8mb1stgg7minga.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "796639073022-024c3r99b3l9fa13quhcnr2jv6ujb912.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mal.signinsignup"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

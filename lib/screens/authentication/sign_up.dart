@@ -12,7 +12,8 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController _userNameTextController = TextEditingController();
+  TextEditingController _firstNameTextController = TextEditingController();
+  TextEditingController _lastNameTextController = TextEditingController();
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
 
@@ -46,8 +47,13 @@ class _SignUpState extends State<SignUp> {
                 SizedBox(
                   height: 20,
                 ),
-                textField("Enter UserName", Icons.person_outline, false,
-                    _userNameTextController),
+                textField("Enter First Name", Icons.person_outline, false,
+                    _firstNameTextController),
+                SizedBox(
+                  height: 20,
+                ),
+                textField("Enter Last Name", Icons.person_outline, false,
+                    _lastNameTextController),
                 SizedBox(
                   height: 20,
                 ),
@@ -56,8 +62,8 @@ class _SignUpState extends State<SignUp> {
                 SizedBox(
                   height: 20,
                 ),
-                textField("Enter your Password", Icons.lock_outline, true,
-                    _passwordTextController),
+                passwordtextField("Enter Your Password", Icons.lock_outline,
+                    true, _passwordTextController),
                 SizedBox(
                   height: 30,
                 ),

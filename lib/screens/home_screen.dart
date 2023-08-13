@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:namer_app/screens/authentication/sign_in.dart';
 import 'package:provider/provider.dart';
 
 import '../main.dart';
@@ -62,11 +64,23 @@ class WelcomePage extends StatelessWidget {
 
     return Column(children: [
       AppBar(
-          title: Text('Welcome to Evalia'),
-          titleTextStyle:
-              TextStyle(color: Color.fromARGB(255, 30, 44, 52), fontSize: 30),
-          centerTitle: true,
-          backgroundColor: Color.fromARGB(255, 114, 169, 196)),
+        title: Text('Welcome to Evalia'),
+        titleTextStyle:
+            TextStyle(color: Color.fromARGB(255, 30, 44, 52), fontSize: 30),
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 114, 169, 196),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              FirebaseAuth.instance.signOut().then((value) {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => SignIn()));
+              });
+            },
+          ),
+        ],
+      ),
       Expanded(
           child: Center(
         child: Column(
