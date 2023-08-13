@@ -74,10 +74,10 @@ class WelcomePage extends StatelessWidget {
       child: Column(children: [
         AppBar(
           title: Text('Welcome to Evalia'),
-          titleTextStyle: TextStyle(
-              color: Color.fromARGB(255, 158, 211, 241), fontSize: 30),
+          titleTextStyle:
+              TextStyle(color: Color.fromARGB(255, 13, 58, 82), fontSize: 30),
           centerTitle: true,
-          backgroundColor: Color.fromARGB(255, 53, 135, 190),
+          backgroundColor: Color.fromARGB(255, 92, 173, 216),
           actions: [
             IconButton(
               icon: Icon(Icons.logout),
