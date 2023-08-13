@@ -1,4 +1,4 @@
-import 'package:namer_app/src/features/models/address.dart';
+import 'package:namer_app/models/address.dart';
 
 class Entity {
   final int entityId;

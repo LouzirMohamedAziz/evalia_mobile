@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'package:namer_app/src/features/models/sub_sector.dart';
+import 'sub_sector.dart';
 
 class Sector {
   final Long sectorId;

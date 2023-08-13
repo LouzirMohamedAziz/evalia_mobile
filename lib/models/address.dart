@@ -1,8 +1,8 @@
 import 'dart:ffi';
 
-import 'package:namer_app/src/features/models/Country.dart';
-import 'package:namer_app/src/features/models/Governorate.dart';
-import 'package:namer_app/src/features/models/delegation.dart';
+import 'package:namer_app/models/country.dart';
+import 'package:namer_app/models/delegation.dart';
+import 'package:namer_app/models/governorate.dart';
 
 class Address {
   final Long adressId;

@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'package:namer_app/src/features/models/Performance.dart';
+import 'performance.dart';
 
 class Indicator {
   final Long indicatorId;

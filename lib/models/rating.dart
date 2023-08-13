@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'package:namer_app/src/features/models/Professional.dart';
+import 'professional.dart';
 
 class Rating {
   final Long ratingId;
