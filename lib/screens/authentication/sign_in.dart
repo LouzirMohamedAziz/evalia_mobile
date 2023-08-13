@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
-import '../reusable/reusable_widget.dart';
+import '../../reusable/reusable_widget.dart';
+import '../home_screen.dart';
 import 'sign_up.dart';
 
 class SignIn extends StatefulWidget {

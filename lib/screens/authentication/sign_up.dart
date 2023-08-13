@@ -1,7 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../main.dart';
-import '../reusable/reusable_widget.dart';
+import '../../reusable/reusable_widget.dart';
+import '../home_screen.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -61,6 +62,16 @@ class _SignUpState extends State<SignUp> {
                   height: 30,
                 ),
                 signInSignUpButton(context, bool, true, () {
+                  FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                    email: _emailTextController.text,
+                    password: _passwordTextController.text,
+                  )
+                      .then(
+                    (value) {
+                      print("Account created successfuly!");
+                    },
+                  );
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => MyHomePage()));
                 })
