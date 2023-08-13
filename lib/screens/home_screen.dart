@@ -20,7 +20,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 182, 223, 243),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -38,7 +37,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         currentIndex: _currentIndex,
-        selectedItemColor: Color.fromARGB(255, 65, 111, 134),
+        selectedItemColor: Color.fromARGB(255, 255, 255, 255),
+        unselectedItemColor: Color.fromARGB(255, 170, 214, 238),
+        backgroundColor: Color.fromARGB(255, 13, 58, 82),
         onTap: (index) {
           setState(() {
             _currentIndex = index;
@@ -62,54 +63,62 @@ class WelcomePage extends StatelessWidget {
       icon = Icons.favorite_border;
     }
 
-    return Column(children: [
-      AppBar(
-        title: Text('Welcome to Evalia'),
-        titleTextStyle:
-            TextStyle(color: Color.fromARGB(255, 30, 44, 52), fontSize: 30),
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 114, 169, 196),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.logout),
-            onPressed: () {
-              FirebaseAuth.instance.signOut().then((value) {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => SignIn()));
-              });
-            },
-          ),
-        ],
-      ),
-      Expanded(
-          child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            BigCard(pair: pair),
-            SizedBox(height: 10),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                    appState.toggleFavorite();
-                  },
-                  icon: Icon(icon),
-                  label: Text('Like'),
-                ),
-                SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    appState.getNext();
-                  },
-                  child: Text('Next'),
-                ),
-              ],
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+        Color.fromARGB(255, 68, 158, 219),
+        Color.fromARGB(255, 6, 80, 145),
+        Color.fromARGB(255, 4, 39, 58)
+      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+      child: Column(children: [
+        AppBar(
+          title: Text('Welcome to Evalia'),
+          titleTextStyle: TextStyle(
+              color: Color.fromARGB(255, 158, 211, 241), fontSize: 30),
+          centerTitle: true,
+          backgroundColor: Color.fromARGB(255, 53, 135, 190),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () {
+                FirebaseAuth.instance.signOut().then((value) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignIn()));
+                });
+              },
             ),
           ],
         ),
-      ))
-    ]);
+        Expanded(
+            child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BigCard(pair: pair),
+              SizedBox(height: 10),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      appState.toggleFavorite();
+                    },
+                    icon: Icon(icon),
+                    label: Text('Like'),
+                  ),
+                  SizedBox(width: 10),
+                  ElevatedButton(
+                    onPressed: () {
+                      appState.getNext();
+                    },
+                    child: Text('Next'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ))
+      ]),
+    );
   }
 }
