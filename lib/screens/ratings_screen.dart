@@ -4,8 +4,14 @@ import 'package:namer_app/entities/professiona.dart';
 import '../reusable/reusable_widget.dart';
 
 class RatingsPage extends StatelessWidget {
-  TextEditingController _firstNameTextController = TextEditingController();
 
+  TextEditingController _actorNameTextController = TextEditingController();
+  TextEditingController _actorTypeTextController = TextEditingController();
+  TextEditingController _sectorNameTextController = TextEditingController();
+  TextEditingController _subSectorNameTextController = TextEditingController();
+  TextEditingController _countryTextController = TextEditingController();
+  TextEditingController _governorateTextController = TextEditingController();
+  TextEditingController _delegationTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final cardTextStyle = TextStyle(
@@ -57,37 +63,37 @@ class RatingsPage extends StatelessWidget {
           Column(
             children: [
               textField("Actor name", Icons.person_outline, false,
-                  _firstNameTextController),
+                  _actorNameTextController),
               SizedBox(
                 height: 10,
               ),
               textField("Actor type", Icons.recent_actors_outlined, false,
-                  _firstNameTextController),
+                  _actorTypeTextController),
               SizedBox(
                 height: 10,
               ),
               textField("Sector", Icons.add_shopping_cart_outlined, false,
-                  _firstNameTextController),
+                  _sectorNameTextController),
               SizedBox(
                 height: 10,
               ),
               textField("Sub-sector", Icons.assignment_turned_in_outlined,
-                  false, _firstNameTextController),
+                  false, _subSectorNameTextController),
               SizedBox(
                 height: 10,
               ),
               textField("Country", Icons.account_balance_outlined, false,
-                  _firstNameTextController),
+                  _countryTextController),
               SizedBox(
                 height: 10,
               ),
               textField("Governorate", Icons.business, false,
-                  _firstNameTextController),
+                  _governorateTextController),
               SizedBox(
                 height: 10,
               ),
               textField("Delegation", Icons.location_city_outlined, false,
-                  _firstNameTextController),
+                  _delegationTextController),
             ],
           ),
           SizedBox(height: 30),
