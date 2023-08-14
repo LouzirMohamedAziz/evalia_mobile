@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'professional.dart';
+import 'professiona.dart';
 
 class Rating {
   final Long ratingId;

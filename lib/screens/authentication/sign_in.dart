@@ -23,9 +23,10 @@ class _SignInState extends State<SignIn> {
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
-              Color.fromARGB(255, 68, 158, 219),
-              Color.fromARGB(255, 6, 80, 145),
-              Color.fromARGB(255, 4, 39, 58)
+              Color.fromARGB(255, 132, 202, 240),
+              Color.fromARGB(255, 53, 135, 206),
+              Color.fromARGB(255, 7, 106, 160),
+              Color.fromARGB(255, 13, 58, 82)
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
             child: SingleChildScrollView(
                 child: Padding(
@@ -33,15 +34,6 @@ class _SignInState extends State<SignIn> {
                         20, MediaQuery.of(context).size.height * 0.2, 20, 0),
                     child: Column(
                       children: <Widget>[
-                        Text("Welcome to Evalia",
-                            style: TextStyle(
-                              color: const Color.fromARGB(255, 44, 58, 65),
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            )),
-                        SizedBox(
-                          height: 20,
-                        ),
                         logoWidget("assets/images/evalia_logo_old.png"),
                         SizedBox(
                           height: 80,
@@ -79,7 +71,7 @@ class _SignInState extends State<SignIn> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have account?",
+        const Text("Don't have account? ",
             style: TextStyle(color: Colors.white70)),
         GestureDetector(
           onTap: () {
@@ -87,7 +79,7 @@ class _SignInState extends State<SignIn> {
                 context, MaterialPageRoute(builder: (context) => SignUp()));
           },
           child: const Text(
-            "Sign Up",
+            "Sign UP",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         )

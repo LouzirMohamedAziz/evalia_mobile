@@ -1,74 +1,130 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/models/professional.dart';
+import 'package:namer_app/entities/professiona.dart';
+
+import '../reusable/reusable_widget.dart';
 
 class RatingsPage extends StatelessWidget {
+
+  TextEditingController _actorNameTextController = TextEditingController();
+  TextEditingController _actorTypeTextController = TextEditingController();
+  TextEditingController _sectorNameTextController = TextEditingController();
+  TextEditingController _subSectorNameTextController = TextEditingController();
+  TextEditingController _countryTextController = TextEditingController();
+  TextEditingController _governorateTextController = TextEditingController();
+  TextEditingController _delegationTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final cardTextStyle = TextStyle(
       fontSize: 24,
       fontWeight: FontWeight.bold,
-      color: Color.fromARGB(255, 30, 44, 52),
+      color: Color.fromARGB(255, 255, 255, 255),
     );
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 100),
-        Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Color.fromARGB(255, 14, 61, 92), // Border color
-              ),
-              borderRadius:
-                  BorderRadius.circular(8), // Adjust border radius as needed
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(
-                'Select Actor by:',
-                style: cardTextStyle,
-                semanticsLabel: 'Actors Criteria',
-              ),
-            ),
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+        Color.fromARGB(255, 132, 202, 240),
+        Color.fromARGB(255, 53, 135, 206),
+        Color.fromARGB(255, 7, 106, 160),
+        Color.fromARGB(255, 13, 58, 82)
+      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppBar(
+            title: Text('Select Actor By:'),
+            titleTextStyle: TextStyle(
+                color: Color.fromARGB(255, 205, 234, 243), fontSize: 30),
+            centerTitle: true,
+            backgroundColor: Color.fromARGB(255, 92, 173, 216),
           ),
-        ),
-        SearchCriteriaTextField(label: 'Actor Name'),
-        SearchCriteriaTextField(label: 'Sector'),
-        SearchCriteriaTextField(label: 'Sub-sector'),
-        SearchCriteriaTextField(label: 'Country'),
-        SearchCriteriaTextField(label: 'Governorate'),
-        SearchCriteriaTextField(label: 'Delegation'),
-        SizedBox(height: 30),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 150,
-              height: 50,
-              child: ElevatedButton.icon(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SearchResultsPage(),
-                      ),
-                    );
-                  },
-                  icon: Icon(Icons.loop),
-                  label: Text('Search'),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 63, 115, 141),
-                      foregroundColor: Color.fromARGB(255, 255, 255, 255),
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                      ))),
-            ),
-          ],
-        ),
-      ],
+          SizedBox(height: 70),
+          // Padding(
+          //   padding: const EdgeInsets.all(20.0),
+          //   child: Container(
+          //     decoration: BoxDecoration(
+          //       border: Border.all(
+          //         color: Color.fromARGB(255, 14, 61, 92), // Border color
+          //       ),
+          //       borderRadius:
+          //           BorderRadius.circular(8), // Adjust border radius as needed
+          //     ),
+          //     child: Padding(
+          //       padding: const EdgeInsets.all(20.0),
+          //       child: Text(
+          //         'Select Actor by:',
+          //         style: cardTextStyle,
+          //         semanticsLabel: 'Actors Criteria',
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          Column(
+            children: [
+              textField("Actor name", Icons.person_outline, false,
+                  _actorNameTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Actor type", Icons.recent_actors_outlined, false,
+                  _actorTypeTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Sector", Icons.add_shopping_cart_outlined, false,
+                  _sectorNameTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Sub-sector", Icons.assignment_turned_in_outlined,
+                  false, _subSectorNameTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Country", Icons.account_balance_outlined, false,
+                  _countryTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Governorate", Icons.business, false,
+                  _governorateTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Delegation", Icons.location_city_outlined, false,
+                  _delegationTextController),
+            ],
+          ),
+          SizedBox(height: 30),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 150,
+                height: 50,
+                child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SearchResultsPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.loop),
+                    label: Text('Search'),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromARGB(255, 63, 115, 141),
+                        foregroundColor: Color.fromARGB(255, 255, 255, 255),
+                        textStyle: TextStyle(
+                          fontSize: 20,
+                        ))),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -85,7 +141,21 @@ class SearchCriteriaTextField extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
           labelText: label,
-          border: OutlineInputBorder(),
+          labelStyle: TextStyle(
+            color: const Color.fromARGB(255, 199, 5, 5),
+          ),
+          filled: true,
+          fillColor: Colors.white, // Set the background color to white
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.white, // Set the border color to white
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.white, // Set the border color to white
+            ),
+          ),
         ),
       ),
     );

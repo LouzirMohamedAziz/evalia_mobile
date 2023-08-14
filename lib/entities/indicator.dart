@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'performance.dart';
+import 'performanc.dart';
 
 class Indicator {
   final Long indicatorId;
