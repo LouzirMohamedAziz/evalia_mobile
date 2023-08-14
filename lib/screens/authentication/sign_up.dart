@@ -22,12 +22,11 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: const Text(
-          "Sign Up",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
+        title: Text('Sign UP'),
+        titleTextStyle:
+            TextStyle(color: Color.fromARGB(255, 205, 234, 243), fontSize: 30),
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 92, 173, 216),
       ),
       body: Container(
           width: MediaQuery.of(context).size.width,
@@ -46,7 +45,7 @@ class _SignUpState extends State<SignUp> {
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: 20,
+                  height: 60,
                 ),
                 textField("Enter First Name", Icons.person_outline, false,
                     _firstNameTextController),

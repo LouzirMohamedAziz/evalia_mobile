@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/models/professional.dart';
+import 'package:namer_app/entities/professiona.dart';
+
+import '../reusable/reusable_widget.dart';
 
 class RatingsPage extends StatelessWidget {
+  TextEditingController _firstNameTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final cardTextStyle = TextStyle(
@@ -22,35 +26,68 @@ class RatingsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 100),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Color.fromARGB(255, 14, 61, 92), // Border color
-                ),
-                borderRadius:
-                    BorderRadius.circular(8), // Adjust border radius as needed
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  'Select Actor by:',
-                  style: cardTextStyle,
-                  semanticsLabel: 'Actors Criteria',
-                ),
-              ),
-            ),
+          AppBar(
+            title: Text('Select Actor By:'),
+            titleTextStyle: TextStyle(
+                color: Color.fromARGB(255, 205, 234, 243), fontSize: 30),
+            centerTitle: true,
+            backgroundColor: Color.fromARGB(255, 92, 173, 216),
           ),
+          SizedBox(height: 70),
+          // Padding(
+          //   padding: const EdgeInsets.all(20.0),
+          //   child: Container(
+          //     decoration: BoxDecoration(
+          //       border: Border.all(
+          //         color: Color.fromARGB(255, 14, 61, 92), // Border color
+          //       ),
+          //       borderRadius:
+          //           BorderRadius.circular(8), // Adjust border radius as needed
+          //     ),
+          //     child: Padding(
+          //       padding: const EdgeInsets.all(20.0),
+          //       child: Text(
+          //         'Select Actor by:',
+          //         style: cardTextStyle,
+          //         semanticsLabel: 'Actors Criteria',
+          //       ),
+          //     ),
+          //   ),
+          // ),
           Column(
             children: [
-              SearchCriteriaTextField(label: 'Actor Name'),
-              SearchCriteriaTextField(label: 'Sector'),
-              SearchCriteriaTextField(label: 'Sub-sector'),
-              SearchCriteriaTextField(label: 'Country'),
-              SearchCriteriaTextField(label: 'Governorate'),
-              SearchCriteriaTextField(label: 'Delegation'),
+              textField("Actor name", Icons.person_outline, false,
+                  _firstNameTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Actor type", Icons.recent_actors_outlined, false,
+                  _firstNameTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Sector", Icons.add_shopping_cart_outlined, false,
+                  _firstNameTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Sub-sector", Icons.assignment_turned_in_outlined,
+                  false, _firstNameTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Country", Icons.account_balance_outlined, false,
+                  _firstNameTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Governorate", Icons.business, false,
+                  _firstNameTextController),
+              SizedBox(
+                height: 10,
+              ),
+              textField("Delegation", Icons.location_city_outlined, false,
+                  _firstNameTextController),
             ],
           ),
           SizedBox(height: 30),
@@ -97,9 +134,22 @@ class SearchCriteriaTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: TextField(
         decoration: InputDecoration(
-          fillColor: Color.fromARGB(255, 255, 255, 255),
           labelText: label,
-          border: OutlineInputBorder(),
+          labelStyle: TextStyle(
+            color: const Color.fromARGB(255, 199, 5, 5),
+          ),
+          filled: true,
+          fillColor: Colors.white, // Set the background color to white
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.white, // Set the border color to white
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.white, // Set the border color to white
+            ),
+          ),
         ),
       ),
     );

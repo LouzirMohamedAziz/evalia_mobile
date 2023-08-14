@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Widget logoWidget(String imageName) {
-  return Container(
+  return SizedBox(
     width: 260,
     height: 160,
     child: Stack(
@@ -28,9 +28,7 @@ TextField textField(String text, IconData icon, bool isPasswordType,
     TextEditingController controller) {
   return TextField(
     controller: controller,
-    obscureText: !isPasswordType,
     enableSuggestions: !isPasswordType,
-    autocorrect: !isPasswordType,
     cursorColor: Colors.white,
     style: TextStyle(color: Colors.white.withOpacity(0.9)),
     decoration: InputDecoration(

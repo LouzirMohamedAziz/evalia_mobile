@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
 import 'country.dart';
-import 'entity.dart';
+import 'entiti.dart';
 
 class Particular extends Entity {
   final Long userId;

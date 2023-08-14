@@ -74,13 +74,16 @@ class WelcomePage extends StatelessWidget {
       child: Column(children: [
         AppBar(
           title: Text('Welcome to Evalia'),
-          titleTextStyle:
-              TextStyle(color: Color.fromARGB(255, 13, 58, 82), fontSize: 30),
+          titleTextStyle: TextStyle(
+              color: Color.fromARGB(255, 205, 234, 243), fontSize: 30),
           centerTitle: true,
           backgroundColor: Color.fromARGB(255, 92, 173, 216),
           actions: [
             IconButton(
-              icon: Icon(Icons.logout),
+              icon: Icon(
+                Icons.logout,
+                color: Color.fromARGB(255, 205, 234, 243),
+              ),
               onPressed: () {
                 FirebaseAuth.instance.signOut().then((value) {
                   Navigator.push(context,
