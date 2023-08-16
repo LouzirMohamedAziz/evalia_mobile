@@ -7,7 +7,7 @@ import 'firebase_options.dart';
 import 'screens/authentication/sign_in.dart';
 
 // Author: Mohamed Aziz LOUZIR
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

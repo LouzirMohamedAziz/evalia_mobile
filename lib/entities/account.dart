@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
 class Account {
-  final Long accId;
+  final String accId;
   final String login;
   final String password;
   final Bool isActive;

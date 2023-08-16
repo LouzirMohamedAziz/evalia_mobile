@@ -1,9 +1,7 @@
-import 'dart:ffi';
-
 import 'professiona.dart';
 
 class Rating {
-  final Long ratingId;
+  final String ratingId;
   final String ratingComment;
   final Professional professional;
 

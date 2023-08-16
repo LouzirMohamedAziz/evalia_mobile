@@ -1,7 +1,5 @@
-import 'dart:ffi';
-
 class Delegation {
-  final Long delegationId;
+  final String delegationId;
   final String delegationName;
 
   Delegation({

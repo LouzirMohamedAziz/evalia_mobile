@@ -1,9 +1,7 @@
-import 'dart:ffi';
-
 import 'sub_sector.dart';
 
 class Sector {
-  final Long sectorId;
+  final String sectorId;
   final String sectorName;
   final SubSector subSector;
 
