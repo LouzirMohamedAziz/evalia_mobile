@@ -1,18 +1,24 @@
-import 'dart:ffi';
+import 'package:namer_app/entities/addres.dart';
 
 import 'country.dart';
 import 'entiti.dart';
 
 class Particular extends Entity {
-  final Long userId;
+  final String userId;
   final String lastName;
   final DateTime birthDate;
   final Country nationality;
 
   Particular(this.userId, this.lastName, this.birthDate, this.nationality,
-      {required super.entityId,
-      required super.name,
-      required super.phone,
-      required super.mail,
-      required super.address});
+      {required int entityId,
+      required String name,
+      required String phone,
+      required String mail,
+      required Address address})
+      : super(
+            entityId: entityId,
+            name: name,
+            phone: phone,
+            mail: mail,
+            address: address);
 }

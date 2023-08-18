@@ -1,11 +1,9 @@
-import 'dart:ffi';
-
 import 'country.dart';
 import 'delegation.dart';
 import 'governorate.dart';
 
 class Address {
-  final Long adressId;
+  final String adressId;
   final Country countryName;
   final Governorate governorate;
   final Delegation delegation;
