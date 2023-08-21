@@ -1,21 +1,12 @@
 import 'dart:ffi';
 
 import 'package:namer_app/entities/addres.dart';
-import 'package:namer_app/entities/rating.dart';
+import 'package:namer_app/entities/entiti.dart';
 
-import 'entiti.dart';
-import 'sector.dart';
+class Moderator extends Entity {
+  final String moderatorId;
 
-class Professional extends Entity {
-  final String professionalId;
-  final String tin;
-  final String actorType;
-  final Sector sector;
-
-  final List<Rating> ratings;
-
-  Professional(
-      this.professionalId, this.tin, this.actorType, this.sector, this.ratings,
+  Moderator(this.moderatorId,
       {required int entityId,
       required String name,
       required String phone,

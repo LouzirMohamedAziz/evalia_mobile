@@ -1,12 +1,12 @@
-import 'regionn.dart';
+import 'package:namer_app/entities/governorate.dart';
 
 class Country {
   final String countryID;
   final String countryName;
-  final Region region;
+  final Governorate governorate;
 
   Country(
       {required this.countryID,
       required this.countryName,
-      required this.region});
+      required this.governorate});
 }

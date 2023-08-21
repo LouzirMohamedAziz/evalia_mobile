@@ -1,21 +1,13 @@
 import 'dart:ffi';
 
 import 'package:namer_app/entities/addres.dart';
-import 'package:namer_app/entities/rating.dart';
 
 import 'entiti.dart';
-import 'sector.dart';
 
-class Professional extends Entity {
-  final String professionalId;
-  final String tin;
-  final String actorType;
-  final Sector sector;
+class Administrator extends Entity {
+  final String administratorId;
 
-  final List<Rating> ratings;
-
-  Professional(
-      this.professionalId, this.tin, this.actorType, this.sector, this.ratings,
+  Administrator(this.administratorId,
       {required int entityId,
       required String name,
       required String phone,
