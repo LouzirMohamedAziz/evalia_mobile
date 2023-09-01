@@ -200,39 +200,6 @@ class _RatingsPageState extends State<RatingsPage> {
   }
 }
 
-class SearchCriteriaTextField extends StatelessWidget {
-  final String label;
-
-  const SearchCriteriaTextField({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      child: TextField(
-        decoration: InputDecoration(
-          labelText: label,
-          labelStyle: TextStyle(
-            color: const Color.fromARGB(255, 199, 5, 5),
-          ),
-          filled: true,
-          fillColor: Colors.white, // Set the background color to white
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.white, // Set the border color to white
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.white, // Set the border color to white
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class SearchResultsPage extends StatefulWidget {
   @override
   _SearchResultsPageState createState() => _SearchResultsPageState();
