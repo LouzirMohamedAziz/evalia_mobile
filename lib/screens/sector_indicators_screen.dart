@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import '../reusable/custom_dropdown_textfield.dart';
 
-class IndicatorsPage extends StatefulWidget {
+class SectorIndicatorsPage extends StatefulWidget {
   @override
-  State<IndicatorsPage> createState() => _IndicatorsPageState();
+  State<SectorIndicatorsPage> createState() => _SectorIndicatorsPageState();
 }
 
-class _IndicatorsPageState extends State<IndicatorsPage> {
+class _SectorIndicatorsPageState extends State<SectorIndicatorsPage> {
   final TextEditingController _territoryTextController =
       TextEditingController();
   final TextEditingController _displayTypeTextController =
@@ -50,51 +50,6 @@ class _IndicatorsPageState extends State<IndicatorsPage> {
                       )),
                   SizedBox(
                     height: 120,
-                  ),
-                  CustomDropdownTextField(
-                    text: 'Display Type',
-                    icon: Icons.recent_actors_outlined,
-                    dropdownItems: ['Chart', 'Map', 'Statistics'],
-                    selectedValue: _displayTypeTextController.text,
-                    onChanged: (newValue) {
-                      _displayTypeTextController.text = newValue ?? '';
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomDropdownTextField(
-                    text: 'Territory',
-                    icon: Icons.category,
-                    dropdownItems: ['All', 'Kef', 'Gafsa'],
-                    selectedValue: _territoryTextController.text,
-                    onChanged: (newValue) {
-                      _territoryTextController.text = newValue ?? '';
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomDropdownTextField(
-                    text: 'Sector(s)',
-                    icon: Icons.add_shopping_cart_outlined,
-                    dropdownItems: ['Sector1', 'Sector2', 'Sector3'],
-                    selectedValue: _sectorNameTextController.text,
-                    onChanged: (newValue) {
-                      _sectorNameTextController.text = newValue ?? '';
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomDropdownTextField(
-                    text: 'Performance',
-                    icon: Icons.account_balance_outlined,
-                    dropdownItems: ['Social', 'Economical', 'Environmental'],
-                    selectedValue: _performanceTextController.text,
-                    onChanged: (newValue) {
-                      _performanceTextController.text = newValue ?? '';
-                    },
                   ),
                   SizedBox(
                     height: 10,

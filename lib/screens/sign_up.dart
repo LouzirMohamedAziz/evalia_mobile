@@ -21,23 +21,16 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        title: Text('Sign UP'),
-        titleTextStyle:
-            TextStyle(color: Color.fromARGB(255, 205, 234, 243), fontSize: 30),
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 92, 173, 216),
-      ),
+      // appBar: AppBar(
+      //   title: Text('Sign UP'),
+      //   titleTextStyle:
+      //       TextStyle(color: Color.fromARGB(255, 205, 234, 243), fontSize: 30),
+      //   centerTitle: true,
+      //   backgroundColor: Color.fromARGB(255, 92, 173, 216),
+      // ),
       body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 132, 202, 240),
-            Color.fromARGB(255, 53, 135, 206),
-            Color.fromARGB(255, 7, 106, 160),
-            Color.fromARGB(255, 13, 58, 82)
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           child: SingleChildScrollView(
               child: Padding(
             padding: EdgeInsets.fromLTRB(
@@ -47,27 +40,27 @@ class _SignUpState extends State<SignUp> {
                 SizedBox(
                   height: 60,
                 ),
-                textField("Enter First Name", Icons.person_outline, false,
+                textField("Enter First Name", Icons.person_outline,
                     _firstNameTextController),
                 SizedBox(
                   height: 20,
                 ),
-                textField("Enter Last Name", Icons.person_outline, false,
+                textField("Enter Last Name", Icons.person_outline,
                     _lastNameTextController),
                 SizedBox(
                   height: 20,
                 ),
-                textField("Enter E-MAIL", Icons.person_outline, false,
-                    _emailTextController),
+                textField(
+                    "Enter E-MAIL", Icons.person_outline, _emailTextController),
                 SizedBox(
                   height: 20,
                 ),
                 passwordtextField("Enter Your Password", Icons.lock_outline,
                     true, _passwordTextController),
                 SizedBox(
-                  height: 30,
+                  height: 40,
                 ),
-                signInSignUpButton(context, bool, true, () {
+                signInSignUpButton(context, false, () {
                   FirebaseAuth.instance
                       .createUserWithEmailAndPassword(
                     email: _emailTextController.text,

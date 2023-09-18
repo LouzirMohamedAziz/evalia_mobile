@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../constants/images.dart';
 import '../constants/texts.dart';
-import '../reusable/fonts.dart';
+import '../reusable/evalia_main_title.dart';
 import '../reusable/reusable_widget.dart';
-import '../reusable/text_field.dart';
 import 'home_screen.dart';
 import 'sign_up.dart';
 
@@ -35,7 +34,7 @@ class _SignInState extends State<SignIn> {
             child: SingleChildScrollView(
                 child: Padding(
                     padding: EdgeInsets.fromLTRB(
-                        20, MediaQuery.of(context).size.height * 0.2, 20, 0),
+                        30, MediaQuery.of(context).size.height * 0.13, 30, 0),
                     child: Column(
                       children: <Widget>[
                         Image(
@@ -50,20 +49,25 @@ class _SignInState extends State<SignIn> {
                             fontWeight: FontWeight.bold,
                             fontSize: 24),
                         SizedBox(
-                          height: 80,
+                          height: 70,
                         ),
-                        TextFieldExampleApp(),
+                        Image(
+                          image: AssetImage(tWelomeScreenImage),
+                        ),
+                        SizedBox(
+                          height: 60,
+                        ),
                         textField("Enter your E-mail", Icons.person_outline,
-                            true, _emailTextController),
+                            _emailTextController),
                         SizedBox(
                           height: 20,
                         ),
                         passwordtextField("Enter your Password",
                             Icons.lock_outline, true, _passwordTextController),
                         SizedBox(
-                          height: 30,
+                          height: 40,
                         ),
-                        signInSignUpButton(context, bool, true, () {
+                        signInSignUpButton(context, true, () {
                           FirebaseAuth.instance
                               .signInWithEmailAndPassword(
                                   email: _emailTextController.text,
@@ -77,6 +81,9 @@ class _SignInState extends State<SignIn> {
                             print("Error ${error.toString()}");
                           });
                         }),
+                        SizedBox(
+                          height: 20,
+                        ),
                         signUpOption()
                       ],
                     )))));
@@ -86,16 +93,22 @@ class _SignInState extends State<SignIn> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have account? ",
-            style: TextStyle(color: Colors.white70)),
+        const Text(signUpText,
+            style: TextStyle(
+                color: Color.fromRGBO(4, 79, 145, 1),
+                fontSize: 18,
+                fontWeight: FontWeight.w600)),
         GestureDetector(
           onTap: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => SignUp()));
           },
           child: const Text(
-            "Sign UP",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            "Sign Up",
+            style: TextStyle(
+                color: Color.fromRGBO(0, 75, 141, 1),
+                fontWeight: FontWeight.bold,
+                fontSize: 18),
           ),
         )
       ],

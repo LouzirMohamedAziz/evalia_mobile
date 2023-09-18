@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:namer_app/entities/professiona.dart';
 
+import '../constants/colors.dart';
 import '../reusable/custom_dropdown_textfield.dart';
 
 class RatingsPage extends StatefulWidget {
@@ -41,13 +42,6 @@ class _RatingsPageState extends State<RatingsPage> {
     // );
 
     return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-        Color.fromARGB(255, 132, 202, 240),
-        Color.fromARGB(255, 53, 135, 206),
-        Color.fromARGB(255, 7, 106, 160),
-        Color.fromARGB(255, 13, 58, 82)
-      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +55,7 @@ class _RatingsPageState extends State<RatingsPage> {
                   ),
                   Text("Select Actor By",
                       style: TextStyle(
-                        color: Color.fromARGB(160, 255, 255, 255),
+                        color: mainEvaliaColor,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                       )),
@@ -182,8 +176,7 @@ class _RatingsPageState extends State<RatingsPage> {
                             icon: Icon(Icons.loop),
                             label: Text('Search'),
                             style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    Color.fromARGB(255, 63, 115, 141),
+                                backgroundColor: mainEvaliaColor,
                                 foregroundColor:
                                     Color.fromARGB(255, 255, 255, 255),
                                 textStyle: TextStyle(

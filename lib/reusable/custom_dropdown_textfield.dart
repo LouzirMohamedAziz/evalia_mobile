@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/colors.dart';
+
 class CustomDropdownTextField extends StatefulWidget {
   final String text;
   final IconData icon;
@@ -40,7 +42,6 @@ class _CustomDropdownTextFieldState extends State<CustomDropdownTextField> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.0),
-        color: Colors.white.withOpacity(0.3),
       ),
       child: Row(
         children: [
@@ -48,7 +49,7 @@ class _CustomDropdownTextFieldState extends State<CustomDropdownTextField> {
             padding: const EdgeInsets.all(16.0),
             child: Icon(
               widget.icon,
-              color: Colors.white70,
+              color: mainEvaliaColor,
             ),
           ),
           Expanded(
@@ -61,10 +62,9 @@ class _CustomDropdownTextFieldState extends State<CustomDropdownTextField> {
                 onTap: () {
                   showDropdown(context);
                 },
-                style: TextStyle(color: Colors.white.withOpacity(0.9)),
+                style: TextStyle(color: mainEvaliaTextColor),
                 decoration: InputDecoration(
                   labelText: widget.text,
-                  labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
                   border: InputBorder.none,
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                 ),

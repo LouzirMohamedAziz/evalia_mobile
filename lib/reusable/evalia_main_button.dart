@@ -21,8 +21,8 @@ class EvaliaMainButton extends StatelessWidget {
         width: 270,
         height: 58,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
-          color: Color(0xC0004B8D),
+          borderRadius: BorderRadius.circular(30),
+          color: Color(0xFF004B8D),
         ),
         child: Center(
           child: Text(

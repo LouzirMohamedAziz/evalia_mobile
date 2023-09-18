@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:namer_app/screens/sign_in.dart';
 import 'package:provider/provider.dart';
 
+import '../constants/images.dart';
+import '../constants/texts.dart';
 import '../main.dart';
-import '../reusable/reusable_widget.dart';
+import '../reusable/evalia_main_title.dart';
+import 'account_screen.dart';
 import 'indicators_screen.dart';
 import 'ratings_screen.dart';
 
@@ -34,7 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
       RatingsPage(),
-      IndicatorsPage()
+      IndicatorsPage(),
+      AccountPage(),
     ];
     return Scaffold(
       body: _pages[_currentIndex],
@@ -52,11 +56,15 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.rate_review_outlined),
             label: 'Indicators',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outlined),
+            label: 'Account',
+          ),
         ],
         currentIndex: _currentIndex,
-        selectedItemColor: Color.fromARGB(255, 255, 255, 255),
-        unselectedItemColor: Color.fromARGB(255, 170, 214, 238),
-        backgroundColor: Color.fromARGB(255, 13, 58, 82),
+        selectedItemColor: Color.fromRGBO(13, 110, 236, 1),
+        unselectedItemColor: Color.fromRGBO(0, 75, 141, 1),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         onTap: (index) {
           setState(() {
             _currentIndex = index;
@@ -81,28 +89,9 @@ class WelcomePage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
 
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 132, 202, 240),
-            Color.fromARGB(255, 53, 135, 206),
-            Color.fromARGB(255, 7, 106, 160),
-            Color.fromARGB(255, 13, 58, 82),
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
-      ),
       child: Column(
         children: [
           AppBar(
-            title: Text('Welcome to Evalia'),
-            titleTextStyle: TextStyle(
-              color: Color.fromARGB(255, 4, 56, 71),
-              fontSize: 30,
-            ),
-            centerTitle: true,
-            backgroundColor: Color.fromARGB(255, 92, 173, 216),
             actions: [
               IconButton(
                 icon: Icon(
@@ -121,12 +110,21 @@ class WelcomePage extends StatelessWidget {
             ],
           ),
           SizedBox(height: 50),
-          Container(
-            margin: EdgeInsets.only(top: 30),
-            width: 220,
-            height: 130,
-            child: logoWidget("assets/images/evalia_logo_old.png"),
+          // Container(
+          //   margin: EdgeInsets.only(top: 30),
+          //   width: 220,
+          //   height: 130,
+          //   child: logoWidget(evaliaLogo),
+          // ),
+          Image(
+            image: AssetImage(tFullEvaliaImage),
+            width: 300,
           ),
+          SizedBox(
+            height: 20,
+          ),
+          EvaliaTitleText(
+              text: slogan, fontWeight: FontWeight.bold, fontSize: 24),
           SizedBox(height: 150),
           Center(
             child: Column(

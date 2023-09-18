@@ -27,31 +27,20 @@ Widget logoWidget(String imageName) {
   );
 }
 
-TextField textField(String text, IconData icon, bool isPasswordType,
-    TextEditingController controller) {
+TextField textField(
+    String text, IconData icon, TextEditingController controller) {
   return TextField(
     controller: controller,
-    enableSuggestions: !isPasswordType,
-    cursorColor: Colors.white,
-    style: TextStyle(color: Colors.white.withOpacity(0.9)),
+    cursorColor: Color.fromRGBO(0, 75, 141, 1),
+    style: TextStyle(color: Color.fromRGBO(21, 50, 100, 1)),
     decoration: InputDecoration(
       prefixIcon: Icon(
         icon,
-        color: Colors.white70,
+        color: Color.fromRGBO(0, 75, 141, 1),
       ),
       labelText: text,
-      labelStyle:
-          TextStyle(color: Color.fromARGB(255, 255, 255, 255).withOpacity(0.9)),
-      filled: true,
-      floatingLabelBehavior: FloatingLabelBehavior.never,
-      fillColor: Color(0xFF007BFF).withOpacity(0.3),
-      border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
-          borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
+      border: UnderlineInputBorder(),
     ),
-    keyboardType: isPasswordType
-        ? TextInputType.visiblePassword
-        : TextInputType.emailAddress,
   );
 }
 
@@ -62,21 +51,15 @@ TextField passwordtextField(String text, IconData icon, bool isPasswordType,
     obscureText: isPasswordType,
     enableSuggestions: !isPasswordType,
     autocorrect: !isPasswordType,
-    cursorColor: Colors.white,
-    style: TextStyle(color: Colors.white.withOpacity(0.9)),
+    cursorColor: Color.fromRGBO(0, 75, 141, 1),
+    style: TextStyle(color: Color.fromRGBO(0, 75, 141, 1)),
     decoration: InputDecoration(
       prefixIcon: Icon(
         icon,
-        color: Colors.white70,
+        color: Color.fromRGBO(0, 75, 141, 1),
       ),
       labelText: text,
-      labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
-      filled: true,
-      floatingLabelBehavior: FloatingLabelBehavior.never,
-      fillColor: Color(0xFF007BFF).withOpacity(0.3),
-      border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
-          borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
+      border: UnderlineInputBorder(),
     ),
     keyboardType: isPasswordType
         ? TextInputType.visiblePassword
@@ -85,11 +68,11 @@ TextField passwordtextField(String text, IconData icon, bool isPasswordType,
 }
 
 Container signInSignUpButton(
-    BuildContext context, bool, isLogin, Function onTap) {
+    BuildContext context, bool isLogin, Function onTap) {
   return Container(
-      width: MediaQuery.of(context).size.width,
+      width: 200,
       height: 50,
-      margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+      // margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
       child: ElevatedButton(
           onPressed: () {
@@ -98,9 +81,9 @@ Container signInSignUpButton(
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.resolveWith((states) {
                 if (states.contains(MaterialState.pressed)) {
-                  return Colors.black26;
+                  return Color.fromRGBO(0, 75, 141, 1);
                 }
-                return Colors.white;
+                return Color.fromRGBO(0, 75, 141, 1);
               }),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
@@ -108,9 +91,7 @@ Container signInSignUpButton(
           child: Text(
             isLogin ? 'LOG IN' : 'SIGN UP',
             style: const TextStyle(
-                color: Colors.black87,
-                fontWeight: FontWeight.bold,
-                fontSize: 16),
+                color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),
           )));
 }
 

@@ -8,7 +8,7 @@ import 'constants/images.dart';
 import 'constants/texts.dart';
 import 'firebase_options.dart';
 import 'reusable/evalia_main_button.dart';
-import 'reusable/fonts.dart';
+import 'reusable/evalia_main_title.dart';
 
 // Author: Mohamed Aziz LOUZIR
 void main() async {
@@ -57,7 +57,8 @@ class Scene extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      padding: EdgeInsets.all(40),
+      padding: EdgeInsets.fromLTRB(
+          30, MediaQuery.of(context).size.height * 0.1, 30, 0),
       child: Column(
         children: [
           // Align(
@@ -68,9 +69,6 @@ class Scene extends StatelessWidget {
           //     width: 200,
           //   ),
           // ),
-          SizedBox(
-            height: 60,
-          ),
           EvaliaTitleText(
               text: welcomeTo, fontWeight: FontWeight.bold, fontSize: 30.0),
           SizedBox(
@@ -92,12 +90,12 @@ class Scene extends StatelessWidget {
             image: AssetImage(tWelomeScreenImage),
           ),
           SizedBox(
-            height: 120,
+            height: 100,
           ),
           EvaliaMainButton(
             text: getStarted,
             fontWeight: FontWeight.w600,
-            fontSize: 24,
+            fontSize: 22,
             onPress: () => {
               Navigator.push(
                 context,

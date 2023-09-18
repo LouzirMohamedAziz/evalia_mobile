@@ -1,6 +1,7 @@
 // Splash Screen Images
 const String tSplashTopIcon = " ";
 const String tSplashImage = " ";
+const String evaliaLogo = "assets/images/evalia_DgK.png";
 
 // OnBoarding Screen Images
 const String tOnBoardingImage1 = " ";
