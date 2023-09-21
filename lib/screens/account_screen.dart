@@ -6,18 +6,18 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  final TextEditingController _territoryTextController =
-      TextEditingController();
-  final TextEditingController _displayTypeTextController =
-      TextEditingController();
-  final TextEditingController _sectorNameTextController =
-      TextEditingController();
-  final TextEditingController _performanceTextController =
-      TextEditingController();
-  final TextEditingController _governorateTextController =
-      TextEditingController();
-  final TextEditingController _temporalityTextController =
-      TextEditingController();
+  // final TextEditingController _territoryTextController =
+  //     TextEditingController();
+  // final TextEditingController _displayTypeTextController =
+  //     TextEditingController();
+  // final TextEditingController _sectorNameTextController =
+  //     TextEditingController();
+  // final TextEditingController _performanceTextController =
+  //     TextEditingController();
+  // final TextEditingController _governorateTextController =
+  //     TextEditingController();
+  // final TextEditingController _temporalityTextController =
+  //     TextEditingController();
 
   @override
   Widget build(BuildContext context) {

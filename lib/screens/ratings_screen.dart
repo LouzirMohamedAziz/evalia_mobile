@@ -86,15 +86,15 @@ class _RatingsPageState extends State<RatingsPage> {
                   SizedBox(
                     height: 10,
                   ),
-                  CustomDropdownTextField(
-                    text: 'Territorial scale',
-                    icon: Icons.category,
-                    dropdownItems: ['National', 'Regional', 'Local'],
-                    selectedValue: _territorialScaleTextController.text,
-                    onChanged: (newValue) {
-                      _territorialScaleTextController.text = newValue ?? '';
-                    },
-                  ),
+                  // CustomDropdownTextField(
+                  //   text: 'Territorial scale',
+                  //   icon: Icons.category,
+                  //   dropdownItems: ['National', 'Regional', 'Local'],
+                  //   selectedValue: _territorialScaleTextController.text,
+                  //   onChanged: (newValue) {
+                  //     _territorialScaleTextController.text = newValue ?? '';
+                  //   },
+                  // ),
                   SizedBox(
                     height: 10,
                   ),
