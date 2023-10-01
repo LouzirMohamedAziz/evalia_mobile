@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:namer_app/constants/colors.dart';
 
 class AccountPage extends StatefulWidget {
   @override
@@ -31,6 +32,7 @@ class _AccountPageState extends State<AccountPage> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Profile'),
+          backgroundColor: mainEvaliaColor,
         ),
         body: Center(
           child: Column(
@@ -39,12 +41,13 @@ class _AccountPageState extends State<AccountPage> {
               SizedBox(height: 80),
               CircleAvatar(
                 radius: 60,
-                backgroundImage: AssetImage(
-                    'assets/user_avatar.jpg'), // Replace with your image path
+                // backgroundImage: AssetImage('assets/user_avatar.jpg'),
+                backgroundColor:
+                    mainEvaliaColor, // Replace with your image path
               ),
               SizedBox(height: 20),
               Text(
-                'John Doe', // Replace with the user's display name
+                'Mohamed Aziz LOUZIR', // Replace with the user's display name
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -52,7 +55,7 @@ class _AccountPageState extends State<AccountPage> {
               ),
               SizedBox(height: 10),
               Text(
-                'john.doe@example.com', // Replace with user's email or other information
+                'medaziz.louzir@gmail.com', // Replace with user's email or other information
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,

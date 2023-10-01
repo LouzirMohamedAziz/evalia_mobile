@@ -59,53 +59,56 @@ class Scene extends StatelessWidget {
         body: Container(
       padding: EdgeInsets.fromLTRB(
           30, MediaQuery.of(context).size.height * 0.1, 30, 0),
-      child: Column(
-        children: [
-          // Align(
-          //   alignment: Alignment.topLeft,
-          //   child: Image(
-          //     image: AssetImage(tgroup3), // Replace with your image asset
-          //     height: 200,
-          //     width: 200,
-          //   ),
-          // ),
-          EvaliaTitleText(
-              text: welcomeTo, fontWeight: FontWeight.bold, fontSize: 30.0),
-          SizedBox(
-            height: 100,
-          ),
-          Image(
-            image: AssetImage(tFullEvaliaImage),
-            width: 300,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          EvaliaTitleText(
-              text: slogan, fontWeight: FontWeight.bold, fontSize: 24),
-          SizedBox(
-            height: 100,
-          ),
-          Image(
-            image: AssetImage(tWelomeScreenImage),
-          ),
-          SizedBox(
-            height: 100,
-          ),
-          EvaliaMainButton(
-            text: getStarted,
-            fontWeight: FontWeight.w600,
-            fontSize: 22,
-            onPress: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SignIn(),
-                ),
-              )
-            },
-          ),
-        ],
+      child: Center(
+        child: Column(
+          children: [
+            // Align(
+            //   alignment: Alignment.topLeft,
+            //   child: Image(
+            //     image: AssetImage(tgroup3), // Replace with your image asset
+            //     height: 200,
+            //     width: 200,
+            //   ),
+            // )
+            EvaliaTitleText(
+                text: welcomeTo, fontWeight: FontWeight.bold, fontSize: 22),
+            SizedBox(
+              height: 30,
+            ),
+            Image(
+              image: AssetImage(tFullEvaliaImage),
+              width: 200,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            EvaliaTitleText(
+                text: slogan, fontWeight: FontWeight.bold, fontSize: 18),
+            SizedBox(
+              height: 150,
+            ),
+            Image(
+              image: AssetImage(tWelomeScreenImage),
+              width: 300,
+            ),
+            SizedBox(
+              height: 220,
+            ),
+            EvaliaMainButton(
+              text: getStarted,
+              fontWeight: FontWeight.w600,
+              fontSize: 18,
+              onPress: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SignIn(),
+                  ),
+                )
+              },
+            ),
+          ],
+        ),
       ),
     ));
   }

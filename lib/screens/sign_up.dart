@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/colors.dart';
 import '../reusable/reusable_widget.dart';
 import 'home_screen.dart';
 
@@ -37,6 +38,12 @@ class _SignUpState extends State<SignUp> {
                 20, MediaQuery.of(context).size.height * 0.2, 20, 0),
             child: Column(
               children: <Widget>[
+                Text("Sign UP",
+                    style: TextStyle(
+                      color: mainEvaliaColor,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    )),
                 SizedBox(
                   height: 60,
                 ),
@@ -58,7 +65,7 @@ class _SignUpState extends State<SignUp> {
                 passwordtextField("Enter Your Password", Icons.lock_outline,
                     true, _passwordTextController),
                 SizedBox(
-                  height: 40,
+                  height: 150,
                 ),
                 signInSignUpButton(context, false, () {
                   FirebaseAuth.instance

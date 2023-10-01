@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:namer_app/entities/sector.dart';
 
 import '../constants/colors.dart';
 import '../reusable/custom_dropdown_textfield.dart';
@@ -40,16 +41,16 @@ class _IndicatorsPageState extends State<IndicatorsPage> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 70,
+                    height: 60,
                   ),
-                  Text("Consulting Form",
+                  Text("Indicators",
                       style: TextStyle(
                         color: mainEvaliaColor,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                       )),
                   SizedBox(
-                    height: 120,
+                    height: 70,
                   ),
                   CustomDropdownTextField(
                     text: 'Display Type',
@@ -109,7 +110,7 @@ class _IndicatorsPageState extends State<IndicatorsPage> {
                     },
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   CustomDropdownTextField(
                     text: 'Temporality',
@@ -120,10 +121,59 @@ class _IndicatorsPageState extends State<IndicatorsPage> {
                       _temporalityTextController.text = newValue ?? '';
                     },
                   ),
+                  SizedBox(
+                    height: 95,
+                  ),
+                  SizedBox(
+                    width: 150,
+                    height: 50,
+                    child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  IndicatorsSearchResultsPage(),
+                            ),
+                          );
+                        },
+                        icon: Icon(Icons.loop),
+                        label: Text('Search'),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: mainEvaliaColor,
+                            foregroundColor: Color.fromARGB(255, 255, 255, 255),
+                            textStyle: TextStyle(
+                              fontSize: 20,
+                            ))),
+                  ),
                 ],
               ))
         ],
       ),
+    );
+  }
+}
+
+class IndicatorsSearchResultsPage extends StatefulWidget {
+  @override
+  _IndicatorsSearchResultsPageState createState() =>
+      _IndicatorsSearchResultsPageState();
+}
+
+class _IndicatorsSearchResultsPageState
+    extends State<IndicatorsSearchResultsPage> {
+  List<Sector> searchResults = []; // Populate this list with search results
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+        Color.fromARGB(255, 132, 202, 240),
+        Color.fromARGB(255, 53, 135, 206),
+        Color.fromARGB(255, 7, 106, 160),
+        Color.fromARGB(255, 13, 58, 82)
+      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
     );
   }
 }

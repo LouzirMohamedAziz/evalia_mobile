@@ -91,7 +91,7 @@ Container signInSignUpButton(
           child: Text(
             isLogin ? 'LOG IN' : 'SIGN UP',
             style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),
+                color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
           )));
 }
 

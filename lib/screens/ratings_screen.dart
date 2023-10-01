@@ -51,16 +51,16 @@ class _RatingsPageState extends State<RatingsPage> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 50,
+                    height: 60,
                   ),
-                  Text("Select Actor By",
+                  Text("Ratings Form",
                       style: TextStyle(
                         color: mainEvaliaColor,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                       )),
                   SizedBox(
-                    height: 20,
+                    height: 60,
                   ),
                   CustomDropdownTextField(
                     text: 'Actor Name',
@@ -101,7 +101,17 @@ class _RatingsPageState extends State<RatingsPage> {
                   CustomDropdownTextField(
                     text: 'Sector',
                     icon: Icons.add_shopping_cart_outlined,
-                    dropdownItems: ['Sector1', 'Sector2', 'Sector3'],
+                    dropdownItems: [
+                      'Health',
+                      'Governance',
+                      'Defense',
+                      'Culture',
+                      'Food',
+                      'Transportation',
+                      'Automobile',
+                      'Telco',
+                      'Technology'
+                    ],
                     selectedValue: _sectorNameTextController.text,
                     onChanged: (newValue) {
                       _sectorNameTextController.text = newValue ?? '';
@@ -125,7 +135,15 @@ class _RatingsPageState extends State<RatingsPage> {
                   CustomDropdownTextField(
                     text: 'Country',
                     icon: Icons.account_balance_outlined,
-                    dropdownItems: ['Tunisia', 'Algeria', 'Morocco'],
+                    dropdownItems: [
+                      'Tunisia',
+                      'Algeria',
+                      'Morocco',
+                      'France',
+                      'England',
+                      'Italia',
+                      'Belgium'
+                    ],
                     selectedValue: _countryTextController.text,
                     onChanged: (newValue) {
                       _countryTextController.text = newValue ?? '';
@@ -137,7 +155,16 @@ class _RatingsPageState extends State<RatingsPage> {
                   CustomDropdownTextField(
                     text: 'Governorate',
                     icon: Icons.business_outlined,
-                    dropdownItems: ['Tunis', 'Ariana', 'Ben Arous'],
+                    dropdownItems: [
+                      'Tunis',
+                      'Ariana',
+                      'Ben Arous',
+                      'Nabeul',
+                      'Bizerte',
+                      'El Kef',
+                      'Sousse',
+                      'Sfax'
+                    ],
                     selectedValue: _governorateTextController.text,
                     onChanged: (newValue) {
                       _governorateTextController.text = newValue ?? '';
@@ -156,7 +183,7 @@ class _RatingsPageState extends State<RatingsPage> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -169,7 +196,8 @@ class _RatingsPageState extends State<RatingsPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => SearchResultsPage(),
+                                  builder: (context) =>
+                                      RatingsSearchResultsPage(),
                                 ),
                               );
                             },
@@ -193,12 +221,13 @@ class _RatingsPageState extends State<RatingsPage> {
   }
 }
 
-class SearchResultsPage extends StatefulWidget {
+class RatingsSearchResultsPage extends StatefulWidget {
   @override
-  _SearchResultsPageState createState() => _SearchResultsPageState();
+  _RatingsSearchResultsPageState createState() =>
+      _RatingsSearchResultsPageState();
 }
 
-class _SearchResultsPageState extends State<SearchResultsPage> {
+class _RatingsSearchResultsPageState extends State<RatingsSearchResultsPage> {
   List<Professional> searchResults =
       []; // Populate this list with search results
 

@@ -39,7 +39,7 @@ class _SignInState extends State<SignIn> {
                       children: <Widget>[
                         Image(
                           image: AssetImage(tFullEvaliaImage),
-                          width: 300,
+                          width: 200,
                         ),
                         SizedBox(
                           height: 20,
@@ -47,15 +47,16 @@ class _SignInState extends State<SignIn> {
                         EvaliaTitleText(
                             text: slogan,
                             fontWeight: FontWeight.bold,
-                            fontSize: 24),
+                            fontSize: 18),
                         SizedBox(
                           height: 70,
                         ),
                         Image(
                           image: AssetImage(tWelomeScreenImage),
+                          width: 200,
                         ),
                         SizedBox(
-                          height: 60,
+                          height: 150,
                         ),
                         textField("Enter your E-mail", Icons.person_outline,
                             _emailTextController),

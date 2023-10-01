@@ -18,8 +18,8 @@ class EvaliaMainButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPress, // Call the onPressed function when the button is tapped
       child: Container(
-        width: 270,
-        height: 58,
+        width: 200,
+        height: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: Color(0xFF004B8D),
