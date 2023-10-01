@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:namer_app/screens/sign_in.dart';
+import 'package:namer_app/screens/sign_in_sign_up/sign_in.dart';
 
 import '../constants/images.dart';
 import '../constants/texts.dart';

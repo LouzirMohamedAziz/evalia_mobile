@@ -1,7 +1,9 @@
 import 'package:english_words/english_words.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:namer_app/screens/sign_in.dart';
+import 'package:get/get.dart';
+import 'package:namer_app/repositories/authentication_repository.dart';
+import 'package:namer_app/screens/sign_in_sign_up/sign_in.dart';
 import 'package:provider/provider.dart';
 
 import 'constants/images.dart';
@@ -10,12 +12,16 @@ import 'firebase_options.dart';
 import 'reusable/evalia_main_button.dart';
 import 'reusable/evalia_main_title.dart';
 
+//
+// Started 01 August 2023
+//
 // Author: Mohamed Aziz LOUZIR
+//
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then((value) => Get.put(AuthenticationRepository()));
   runApp(MyApp());
 }
 
@@ -24,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
-      child: MaterialApp(
+      child: GetMaterialApp(
         title: 'Evalia',
         theme: ThemeData(
           useMaterial3: true,
@@ -73,7 +79,7 @@ class Scene extends StatelessWidget {
             EvaliaTitleText(
                 text: welcomeTo, fontWeight: FontWeight.bold, fontSize: 22),
             SizedBox(
-              height: 30,
+              height: 50,
             ),
             Image(
               image: AssetImage(tFullEvaliaImage),
