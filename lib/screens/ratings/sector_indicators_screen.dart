@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constants/colors.dart';
-import '../reusable/custom_dropdown_textfield.dart';
+import '../../constants/colors.dart';
+import '../../reusable/custom_dropdown_textfield.dart';
 
 class SectorIndicatorsPage extends StatefulWidget {
   @override

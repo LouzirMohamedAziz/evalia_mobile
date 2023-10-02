@@ -28,4 +28,19 @@ class UserRepository extends GetxController {
       print(error.toString());
     });
   }
+
+  // Fetch Ratings details from FireStore
+  Future<User> getUserDetails(String email) async {
+    final snapshot =
+        await _db.collection("Users").where("Email", isEqualTo: email).get();
+    final userData = snapshot.docs.map((e) => User.fromSnapshot(e)).single;
+    return userData;
+  }
+
+  // Fetch ALL Ratings from FireStore
+  Future<List<User>> allUsers() async {
+    final snapshot = await _db.collection("Users").get();
+    final userData = snapshot.docs.map((e) => User.fromSnapshot(e)).toList();
+    return userData;
+  }
 }

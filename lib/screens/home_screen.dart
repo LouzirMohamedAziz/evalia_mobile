@@ -5,9 +5,9 @@ import 'package:namer_app/screens/sign_in_sign_up/sign_in.dart';
 import '../constants/images.dart';
 import '../constants/texts.dart';
 import '../reusable/evalia_main_title.dart';
-import 'account_screen.dart';
-import 'indicators_screen.dart';
-import 'ratings_screen.dart';
+import 'profile/profile_screen.dart';
+import 'ratings/indicators_screen.dart';
+import 'ratings/ratings_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       RatingsPage(),
       IndicatorsPage(),
-      AccountPage(),
+      ProfilePage(),
     ];
     return Scaffold(
       body: _pages[_currentIndex],

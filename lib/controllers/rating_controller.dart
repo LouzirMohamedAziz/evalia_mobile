@@ -8,6 +8,7 @@ import '../repositories/rating_repository.dart';
 
 class RatingController extends GetxController {
   static RatingController get instance => Get.find();
+
   final ratingComment = TextEditingController();
   final score = TextEditingController();
   final rater = TextEditingController();

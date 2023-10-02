@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:namer_app/controllers/rating-controller.dart';
+import 'package:namer_app/controllers/rating_controller.dart';
 import 'package:namer_app/entities/professiona.dart';
 
-import '../constants/colors.dart';
-import '../reusable/custom_dropdown_textfield.dart';
+import '../../constants/colors.dart';
+import '../../reusable/custom_dropdown_textfield.dart';
 
 class RatingsPage extends StatefulWidget {
   @override

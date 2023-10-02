@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:namer_app/entities/sector.dart';
 
-import '../constants/colors.dart';
-import '../reusable/custom_dropdown_textfield.dart';
+import '../../constants/colors.dart';
+import '../../reusable/custom_dropdown_textfield.dart';
 
 class IndicatorsPage extends StatefulWidget {
   @override
@@ -67,7 +67,7 @@ class _IndicatorsPageState extends State<IndicatorsPage> {
                   CustomDropdownTextField(
                     text: 'Territory',
                     icon: Icons.category,
-                    dropdownItems: ['All', 'Kef', 'Gafsa'],
+                    dropdownItems: ['All', 'National', 'Regional'],
                     selectedValue: _territoryTextController.text,
                     onChanged: (newValue) {
                       _territoryTextController.text = newValue ?? '';
@@ -79,7 +79,17 @@ class _IndicatorsPageState extends State<IndicatorsPage> {
                   CustomDropdownTextField(
                     text: 'Sector(s)',
                     icon: Icons.add_shopping_cart_outlined,
-                    dropdownItems: ['Sector1', 'Sector2', 'Sector3'],
+                    dropdownItems: [
+                      'Health',
+                      'Governance',
+                      'Defense',
+                      'Culture',
+                      'Food',
+                      'Transportation',
+                      'Automobile',
+                      'Telco',
+                      'Technology'
+                    ],
                     selectedValue: _sectorNameTextController.text,
                     onChanged: (newValue) {
                       _sectorNameTextController.text = newValue ?? '';

@@ -1,37 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:namer_app/constants/colors.dart';
 
-class AccountPage extends StatefulWidget {
-  @override
-  State<AccountPage> createState() => _AccountPageState();
-}
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
-class _AccountPageState extends State<AccountPage> {
-  // final TextEditingController _territoryTextController =
-  //     TextEditingController();
-  // final TextEditingController _displayTypeTextController =
-  //     TextEditingController();
-  // final TextEditingController _sectorNameTextController =
-  //     TextEditingController();
-  // final TextEditingController _performanceTextController =
-  //     TextEditingController();
-  // final TextEditingController _governorateTextController =
-  //     TextEditingController();
-  // final TextEditingController _temporalityTextController =
-  //     TextEditingController();
-
-  @override
   Widget build(BuildContext context) {
-    // final cardTextStyle = TextStyle(
-    //   fontSize: 24,
-    //   fontWeight: FontWeight.bold,
-    //   color: Color.fromARGB(255, 255, 255, 255),
-    // );
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Profile'),
+          title: Text(
+            'Profile',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          ),
           backgroundColor: mainEvaliaColor,
         ),
         body: Center(
@@ -41,7 +21,6 @@ class _AccountPageState extends State<AccountPage> {
               SizedBox(height: 80),
               CircleAvatar(
                 radius: 60,
-                // backgroundImage: AssetImage('assets/user_avatar.jpg'),
                 backgroundColor:
                     mainEvaliaColor, // Replace with your image path
               ),
