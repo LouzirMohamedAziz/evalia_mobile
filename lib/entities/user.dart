@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class User {
-  final String? userId;
+  final String? id;
   final String fullName;
   final String email;
   final String phoneNo;
   final String password;
 
   const User({
-    this.userId,
+    this.id,
     required this.fullName,
     required this.email,
     required this.phoneNo,
@@ -27,7 +27,7 @@ class User {
   factory User.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
     final data = document.data();
     return User(
-        userId: document.id,
+        id: document.id,
         fullName: data?["RatingComment"],
         email: data?["Score"],
         phoneNo: data?["Rater"],

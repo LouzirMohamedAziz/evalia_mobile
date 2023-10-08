@@ -9,6 +9,7 @@ class UserRepository extends GetxController {
 
   final _db = FirebaseFirestore.instance;
 
+// Create a User and add it to the database
   createUser(User user) async {
     await _db
         .collection("Users")
@@ -43,4 +44,6 @@ class UserRepository extends GetxController {
     final userData = snapshot.docs.map((e) => User.fromSnapshot(e)).toList();
     return userData;
   }
+
+  void deleteUser(String id) {}
 }

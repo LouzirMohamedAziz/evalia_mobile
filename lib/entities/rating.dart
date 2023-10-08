@@ -6,7 +6,7 @@ import 'professiona.dart';
 import 'sector.dart';
 
 class Rating {
-  final String ratingId;
+  final String? ratingId;
   final String ratingComment;
   final String score;
   final Entity rater;

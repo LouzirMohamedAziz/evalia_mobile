@@ -138,23 +138,6 @@ class _RatingsPageState extends State<RatingsPage> {
                     SizedBox(
                       height: 10,
                     ),
-                    CustomDropdownTextField(
-                      text: 'Country',
-                      icon: Icons.account_balance_outlined,
-                      dropdownItems: [
-                        'Tunisia',
-                        'Algeria',
-                        'Morocco',
-                        'France',
-                        'England',
-                        'Italia',
-                        'Belgium'
-                      ],
-                      selectedValue: _countryTextController.text,
-                      onChanged: (newValue) {
-                        _countryTextController.text = newValue ?? '';
-                      },
-                    ),
                     SizedBox(
                       height: 10,
                     ),

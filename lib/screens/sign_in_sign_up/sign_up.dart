@@ -7,6 +7,7 @@ import 'package:namer_app/reusable/evalia_main_title.dart';
 import 'package:namer_app/screens/sign_in_sign_up/sign_in.dart';
 
 import '../../constants/colors.dart';
+import '../../entities/user.dart';
 import '../../reusable/reusable_widget.dart';
 
 class SignUp extends StatefulWidget {
@@ -31,7 +32,7 @@ class _SignUpState extends State<SignUp> {
       //   centerTitle: true,
       //   backgroundColor: Color.fromARGB(255, 92, 173, 216),
       // ),
-      body: Container(
+      body: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: SingleChildScrollView(
@@ -82,12 +83,37 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: 70,
                   ),
+                  // SizedBox(
+                  //     width: double.infinity,
+                  //     child: ElevatedButton(
+                  //       onPressed: () {
+                  //         final user = User(
+                  //             fullName: controller.fullname.text.trim(),
+                  //             phoneNo: controller.phoneNo.text.trim(),
+                  //             email: controller.email.text.trim(),
+                  //             password: controller.password.text.trim());
+                  //         SignUpController.instance.createUser(user);
+                  //       },
+                  //       child: Text(tSignup.toUpperCase()),
+                  //     )),
                   signInSignUpButton(context, false, () {
                     if (_formKey.currentState!.validate()) {
-                      SignUpController.instance.registerUser(
-                          controller.email.text.trim(),
-                          controller.password.text.trim());
+                      final user = User(
+                          fullName: controller.fullname.text.trim(),
+                          phoneNo: controller.phoneNo.text.trim(),
+                          email: controller.email.text.trim(),
+                          password: controller.password.text.trim());
+                      SignUpController.instance.createUser(user);
+                      //
+                      //
+                      // This is A GOOD way of doing Auth with Email/password Only
+                      // SignUpController.instance.registerUser(
+                      //     controller.email.text.trim(),
+                      //     controller.password.text.trim());
                     }
+                    //
+                    //
+                    // This is a way of doing the Flutter Authentiin
                     // FirebaseAuth.instance
                     //     .createUserWithEmailAndPassword(
                     //   email: controller.email.text,

@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:namer_app/constants/sizes.dart';
 
@@ -56,7 +57,7 @@ class _SignInState extends State<SignIn> {
                   width: 250,
                 ),
                 SizedBox(
-                  height: 70,
+                  height: 50,
                 ),
                 textField(
                   "Enter your E-mail",
@@ -193,7 +194,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 25,
                 ),
                 signInSignUpButton(context, true, () {
                   FirebaseAuth.instance
@@ -216,6 +217,32 @@ class _SignInState extends State<SignIn> {
                   height: 10,
                 ),
                 signUpOption(),
+                SizedBox(
+                  height: 40,
+                ),
+                RichText(
+                  text: TextSpan(children: [
+                    TextSpan(
+                      text: 'Or, Continue as a ',
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                    ),
+                    TextSpan(
+                        text: 'Guest.',
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MyHomePage(),
+                              ),
+                            );
+                          }),
+                  ]),
+                ),
               ],
             ),
           ),

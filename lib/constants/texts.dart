@@ -8,7 +8,7 @@ const String tSignup = "Signup";
 const String tPhoneNo = "Phone No";
 const String tPassword = "Password";
 const String tFullName = "Full Name";
-const String tForgetPassword = "Forget Password";
+const String tForgetPassword = "Forget Password?";
 const String tSignInWithGoogle = "Sign-In with Google";
 
 // -- Splash Screen Text
@@ -70,7 +70,7 @@ const String signInText = "Already Have An Account ?";
 
 // -- OTP Screen - Text
 const String tOtpTile = "CO\nDE";
-const String tOtpSubTitle = "Verificqtion";
-const String tOtpMessage = "Enter the verificqtion code sent qt ";
+const String tOtpSubTitle = "Verification";
+const String tOtpMessage = "Enter the verification code sent at ";
 
 const String tEditProfile = "EDIT PROFILE";
