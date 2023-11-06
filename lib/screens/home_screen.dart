@@ -7,6 +7,7 @@ import '../constants/texts.dart';
 import '../reusable/evalia_main_title.dart';
 import 'profile/profile_screen.dart';
 import 'ratings/indicators_screen.dart';
+import 'ratings/quick_rate.dart';
 import 'ratings/ratings_screen.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -16,6 +17,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
+  static const List<String> listItems = <String>['Apple', 'Banana', 'Peach'];
 
   @override
   void initState() {
@@ -36,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       RatingsPage(),
       IndicatorsPage(),
+      QuickRatePage(),
       ProfilePage(),
     ];
     return Scaffold(
@@ -53,6 +56,10 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.rate_review_outlined),
             label: 'Indicators',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add),
+            label: 'Quick Rate',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outlined),
@@ -138,14 +145,24 @@ class _WelcomePageState extends State<WelcomePage> {
               fontWeight: FontWeight.bold,
               fontSize: 20,
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                final item = items[index];
-                return ListTile(title: Text(item));
-              },
-            ),
+            // Autocomplete<String>(
+            //   optionsBuilder: (TextEditingValue (textEditingValue) {
+            //     if(textEditingValue.text == '' ) {
+            //       return const Iterable<String>.empty();
+            //     }
+            //     return listItems.where(String item) {
+            //       return item.contains(textEditing)
+            //     }
+            //   }),
+            // )
+            // ListView.builder(
+            //   shrinkWrap: true,
+            //   itemCount: items.length,
+            //   itemBuilder: (context, index) {
+            //     final item = items[index];
+            //     return ListTile(title: Text(item));
+            //   },
+            // ),
           ],
         ),
       ),

@@ -39,8 +39,10 @@ class MyApp extends StatelessWidget {
         ),
         darkTheme:
             ThemeData(brightness: Brightness.dark), // If we will use theme dark
-        themeMode:
-            ThemeMode.light, // in Here we choose the Theme, dark or light
+        themeMode: ThemeMode.system,
+        defaultTransition: Transition.leftToRightWithFade,
+        transitionDuration: const Duration(
+            milliseconds: 500), // in Here we choose the Theme, dark or light
         home: Scene(), // MyHomePage(), //
       ),
     );

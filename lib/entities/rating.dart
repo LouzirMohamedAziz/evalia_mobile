@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'entiti.dart';
 import 'indicator.dart';
+import 'performanc.dart';
 import 'professiona.dart';
 import 'sector.dart';
 
@@ -11,6 +12,7 @@ class Rating {
   final String score;
   final Entity rater;
   final Professional professional;
+  final Performance performance;
   final Indicator indicator;
   final Sector sector;
 
@@ -20,6 +22,7 @@ class Rating {
       required this.score,
       required this.rater,
       required this.professional,
+      required this.performance,
       required this.indicator,
       required this.sector});
 
@@ -29,6 +32,7 @@ class Rating {
       "Score": score,
       "Rater": rater,
       "Professional": professional,
+      "Performance": performance,
       "Indicator": indicator,
       "Sector": sector,
     };
@@ -42,6 +46,7 @@ class Rating {
         score: data?["Score"],
         rater: data?["Rater"],
         professional: data?["Professional"],
+        performance: data?["Performance"],
         indicator: data?["Indicator"],
         sector: data?["Sector"]);
   }

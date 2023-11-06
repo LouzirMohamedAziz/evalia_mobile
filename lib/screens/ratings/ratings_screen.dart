@@ -45,168 +45,166 @@ class _RatingsPageState extends State<RatingsPage> {
     final controller = Get.put(RatingController());
     final _formKey = GlobalKey<FormState>();
 
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 60,
-                    ),
-                    Text("Ratings Form",
-                        style: TextStyle(
-                          color: mainEvaliaColor,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        )),
-                    SizedBox(
-                      height: 60,
-                    ),
-                    CustomDropdownTextField(
-                      text: 'Actor Name',
-                      icon: Icons.recent_actors_outlined,
-                      dropdownItems: ['Type 1', 'Type 2', 'Type 3'],
-                      selectedValue: _actorNameTextController.text,
-                      onChanged: (newValue) {
-                        _actorTypeTextController.text = newValue ?? '';
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CustomDropdownTextField(
-                      text: 'Actor type',
-                      icon: Icons.recent_actors_outlined,
-                      dropdownItems: ['Name1', 'Name2', 'Name3'],
-                      selectedValue: _actorTypeTextController.text,
-                      onChanged: (newValue) {
-                        _actorTypeTextController.text = newValue ?? '';
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    // CustomDropdownTextField(
-                    //   text: 'Territorial scale',
-                    //   icon: Icons.category,
-                    //   dropdownItems: ['National', 'Regional', 'Local'],
-                    //   selectedValue: _territorialScaleTextController.text,
-                    //   onChanged: (newValue) {
-                    //     _territorialScaleTextController.text = newValue ?? '';
-                    //   },
-                    // ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CustomDropdownTextField(
-                      text: 'Sector',
-                      icon: Icons.add_shopping_cart_outlined,
-                      dropdownItems: [
-                        'Health',
-                        'Governance',
-                        'Defense',
-                        'Culture',
-                        'Food',
-                        'Transportation',
-                        'Automobile',
-                        'Telco',
-                        'Technology'
-                      ],
-                      selectedValue: _sectorNameTextController.text,
-                      onChanged: (newValue) {
-                        _sectorNameTextController.text = newValue ?? '';
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CustomDropdownTextField(
-                      text: 'Sub-sector',
-                      icon: Icons.fork_right_sharp,
-                      dropdownItems: ['SubSector1', 'SubSector2', 'SubSector3'],
-                      selectedValue: _subSectorNameTextController.text,
-                      onChanged: (newValue) {
-                        _subSectorNameTextController.text = newValue ?? '';
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CustomDropdownTextField(
-                      text: 'Governorate',
-                      icon: Icons.business_outlined,
-                      dropdownItems: [
-                        'Tunis',
-                        'Ariana',
-                        'Ben Arous',
-                        'Nabeul',
-                        'Bizerte',
-                        'El Kef',
-                        'Sousse',
-                        'Sfax'
-                      ],
-                      selectedValue: _governorateTextController.text,
-                      onChanged: (newValue) {
-                        _governorateTextController.text = newValue ?? '';
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CustomDropdownTextField(
-                      text: 'Delegation',
-                      icon: Icons.location_city_outlined,
-                      dropdownItems: ['Menzah', 'Ghazela'],
-                      selectedValue: _delegationTextController.text,
-                      onChanged: (newValue) {
-                        _delegationTextController.text = newValue ?? '';
-                      },
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 150,
-                          height: 50,
-                          child: ElevatedButton.icon(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        RatingsSearchResultsPage(),
-                                  ),
-                                );
-                              },
-                              icon: Icon(Icons.loop),
-                              label: Text('Search'),
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: mainEvaliaColor,
-                                  foregroundColor:
-                                      Color.fromARGB(255, 255, 255, 255),
-                                  textStyle: TextStyle(
-                                    fontSize: 20,
-                                  ))),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ))
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 60,
+                  ),
+                  Text("Ratings Form",
+                      style: TextStyle(
+                        color: mainEvaliaColor,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  SizedBox(
+                    height: 60,
+                  ),
+                  CustomDropdownTextField(
+                    text: 'Actor Name',
+                    icon: Icons.recent_actors_outlined,
+                    dropdownItems: ['Type 1', 'Type 2', 'Type 3'],
+                    selectedValue: _actorNameTextController.text,
+                    onChanged: (newValue) {
+                      _actorTypeTextController.text = newValue ?? '';
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomDropdownTextField(
+                    text: 'Actor type',
+                    icon: Icons.recent_actors_outlined,
+                    dropdownItems: ['Name1', 'Name2', 'Name3'],
+                    selectedValue: _actorTypeTextController.text,
+                    onChanged: (newValue) {
+                      _actorTypeTextController.text = newValue ?? '';
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  // CustomDropdownTextField(
+                  //   text: 'Territorial scale',
+                  //   icon: Icons.category,
+                  //   dropdownItems: ['National', 'Regional', 'Local'],
+                  //   selectedValue: _territorialScaleTextController.text,
+                  //   onChanged: (newValue) {
+                  //     _territorialScaleTextController.text = newValue ?? '';
+                  //   },
+                  // ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomDropdownTextField(
+                    text: 'Sector',
+                    icon: Icons.add_shopping_cart_outlined,
+                    dropdownItems: [
+                      'Health',
+                      'Governance',
+                      'Defense',
+                      'Culture',
+                      'Food',
+                      'Transportation',
+                      'Automobile',
+                      'Telco',
+                      'Technology'
+                    ],
+                    selectedValue: _sectorNameTextController.text,
+                    onChanged: (newValue) {
+                      _sectorNameTextController.text = newValue ?? '';
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomDropdownTextField(
+                    text: 'Sub-sector',
+                    icon: Icons.fork_right_sharp,
+                    dropdownItems: ['SubSector1', 'SubSector2', 'SubSector3'],
+                    selectedValue: _subSectorNameTextController.text,
+                    onChanged: (newValue) {
+                      _subSectorNameTextController.text = newValue ?? '';
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomDropdownTextField(
+                    text: 'Governorate',
+                    icon: Icons.business_outlined,
+                    dropdownItems: [
+                      'Tunis',
+                      'Ariana',
+                      'Ben Arous',
+                      'Nabeul',
+                      'Bizerte',
+                      'El Kef',
+                      'Sousse',
+                      'Sfax'
+                    ],
+                    selectedValue: _governorateTextController.text,
+                    onChanged: (newValue) {
+                      _governorateTextController.text = newValue ?? '';
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomDropdownTextField(
+                    text: 'Delegation',
+                    icon: Icons.location_city_outlined,
+                    dropdownItems: ['Menzah', 'Ghazela'],
+                    selectedValue: _delegationTextController.text,
+                    onChanged: (newValue) {
+                      _delegationTextController.text = newValue ?? '';
+                    },
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: ElevatedButton.icon(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      RatingsSearchResultsPage(),
+                                ),
+                              );
+                            },
+                            icon: Icon(Icons.loop),
+                            label: Text('Search'),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: mainEvaliaColor,
+                                foregroundColor:
+                                    Color.fromARGB(255, 255, 255, 255),
+                                textStyle: TextStyle(
+                                  fontSize: 20,
+                                ))),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ))
+      ],
     );
   }
 }

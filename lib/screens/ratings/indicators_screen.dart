@@ -31,135 +31,132 @@ class _IndicatorsPageState extends State<IndicatorsPage> {
     //   color: Color.fromARGB(255, 255, 255, 255),
     // );
 
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 60,
-                  ),
-                  Text("Indicators",
-                      style: TextStyle(
-                        color: mainEvaliaColor,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      )),
-                  SizedBox(
-                    height: 70,
-                  ),
-                  CustomDropdownTextField(
-                    text: 'Display Type',
-                    icon: Icons.recent_actors_outlined,
-                    dropdownItems: ['Chart', 'Map', 'Statistics'],
-                    selectedValue: _displayTypeTextController.text,
-                    onChanged: (newValue) {
-                      _displayTypeTextController.text = newValue ?? '';
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomDropdownTextField(
-                    text: 'Territory',
-                    icon: Icons.category,
-                    dropdownItems: ['All', 'National', 'Regional'],
-                    selectedValue: _territoryTextController.text,
-                    onChanged: (newValue) {
-                      _territoryTextController.text = newValue ?? '';
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomDropdownTextField(
-                    text: 'Sector(s)',
-                    icon: Icons.add_shopping_cart_outlined,
-                    dropdownItems: [
-                      'Health',
-                      'Governance',
-                      'Defense',
-                      'Culture',
-                      'Food',
-                      'Transportation',
-                      'Automobile',
-                      'Telco',
-                      'Technology'
-                    ],
-                    selectedValue: _sectorNameTextController.text,
-                    onChanged: (newValue) {
-                      _sectorNameTextController.text = newValue ?? '';
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomDropdownTextField(
-                    text: 'Performance',
-                    icon: Icons.account_balance_outlined,
-                    dropdownItems: ['Social', 'Economical', 'Environmental'],
-                    selectedValue: _performanceTextController.text,
-                    onChanged: (newValue) {
-                      _performanceTextController.text = newValue ?? '';
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomDropdownTextField(
-                    text: 'Indicator',
-                    icon: Icons.business_outlined,
-                    dropdownItems: ['QLT', 'ACCS', 'STAFF', 'ALL GR'],
-                    selectedValue: _governorateTextController.text,
-                    onChanged: (newValue) {
-                      _governorateTextController.text = newValue ?? '';
-                    },
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  CustomDropdownTextField(
-                    text: 'Temporality',
-                    icon: Icons.location_city_outlined,
-                    dropdownItems: ['2022', '2023'],
-                    selectedValue: _temporalityTextController.text,
-                    onChanged: (newValue) {
-                      _temporalityTextController.text = newValue ?? '';
-                    },
-                  ),
-                  SizedBox(
-                    height: 95,
-                  ),
-                  SizedBox(
-                    width: 150,
-                    height: 50,
-                    child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  IndicatorsSearchResultsPage(),
-                            ),
-                          );
-                        },
-                        icon: Icon(Icons.loop),
-                        label: Text('Search'),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: mainEvaliaColor,
-                            foregroundColor: Color.fromARGB(255, 255, 255, 255),
-                            textStyle: TextStyle(
-                              fontSize: 20,
-                            ))),
-                  ),
-                ],
-              ))
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 60,
+                ),
+                Text("Indicators",
+                    style: TextStyle(
+                      color: mainEvaliaColor,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    )),
+                SizedBox(
+                  height: 70,
+                ),
+                CustomDropdownTextField(
+                  text: 'Display Type',
+                  icon: Icons.recent_actors_outlined,
+                  dropdownItems: ['Chart', 'Map', 'Statistics'],
+                  selectedValue: _displayTypeTextController.text,
+                  onChanged: (newValue) {
+                    _displayTypeTextController.text = newValue ?? '';
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomDropdownTextField(
+                  text: 'Territory',
+                  icon: Icons.category,
+                  dropdownItems: ['All', 'National', 'Regional'],
+                  selectedValue: _territoryTextController.text,
+                  onChanged: (newValue) {
+                    _territoryTextController.text = newValue ?? '';
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomDropdownTextField(
+                  text: 'Sector(s)',
+                  icon: Icons.add_shopping_cart_outlined,
+                  dropdownItems: [
+                    'Health',
+                    'Governance',
+                    'Defense',
+                    'Culture',
+                    'Food',
+                    'Transportation',
+                    'Automobile',
+                    'Telco',
+                    'Technology'
+                  ],
+                  selectedValue: _sectorNameTextController.text,
+                  onChanged: (newValue) {
+                    _sectorNameTextController.text = newValue ?? '';
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomDropdownTextField(
+                  text: 'Performance',
+                  icon: Icons.account_balance_outlined,
+                  dropdownItems: ['Social', 'Economical', 'Environmental'],
+                  selectedValue: _performanceTextController.text,
+                  onChanged: (newValue) {
+                    _performanceTextController.text = newValue ?? '';
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomDropdownTextField(
+                  text: 'Indicator',
+                  icon: Icons.business_outlined,
+                  dropdownItems: ['QLT', 'ACCS', 'STAFF', 'ALL GR'],
+                  selectedValue: _governorateTextController.text,
+                  onChanged: (newValue) {
+                    _governorateTextController.text = newValue ?? '';
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomDropdownTextField(
+                  text: 'Temporality',
+                  icon: Icons.location_city_outlined,
+                  dropdownItems: ['2022', '2023'],
+                  selectedValue: _temporalityTextController.text,
+                  onChanged: (newValue) {
+                    _temporalityTextController.text = newValue ?? '';
+                  },
+                ),
+                SizedBox(
+                  height: 95,
+                ),
+                SizedBox(
+                  width: 150,
+                  height: 50,
+                  child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => IndicatorsSearchResultsPage(),
+                          ),
+                        );
+                      },
+                      icon: Icon(Icons.loop),
+                      label: Text('Search'),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: mainEvaliaColor,
+                          foregroundColor: Color.fromARGB(255, 255, 255, 255),
+                          textStyle: TextStyle(
+                            fontSize: 20,
+                          ))),
+                ),
+              ],
+            ))
+      ],
     );
   }
 }

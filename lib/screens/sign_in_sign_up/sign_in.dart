@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:namer_app/constants/sizes.dart';
+import 'package:namer_app/screens/sign_in_sign_up/forget_password_model_botton_sheet.dart';
 
 import '../../constants/images.dart';
 import '../../constants/texts.dart';
@@ -76,119 +76,13 @@ class _SignInState extends State<SignIn> {
                 SizedBox(
                   height: 10,
                 ),
+
+                // FORGET PASSWORD TEXT BUTTON
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
-                      showModalBottomSheet(
-                        context: context,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0)),
-                        builder: (context) => Container(
-                          padding: const EdgeInsets.all(tDefaultSize),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                tForgetPasswordTitle,
-                                style:
-                                    Theme.of(context).textTheme.headlineLarge,
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                tForgetPasswordSubTitle,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                              const SizedBox(
-                                height: 30.0,
-                              ),
-                              GestureDetector(
-                                onTap: () => {},
-                                child: Container(
-                                  padding: const EdgeInsets.all(20.0),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    color: Colors.grey.shade200,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.mail_outline_rounded,
-                                        size: 40,
-                                      ),
-                                      SizedBox(
-                                        width: 20,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "E-Mail",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headlineSmall,
-                                          ),
-                                          Text(
-                                            tResetViaEMail,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge,
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              GestureDetector(
-                                onTap: () => {},
-                                child: Container(
-                                  padding: const EdgeInsets.all(20.0),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    color: Colors.grey.shade200,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.mail_outline_rounded,
-                                        size: 40,
-                                      ),
-                                      SizedBox(
-                                        width: 20,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Phone",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headlineSmall,
-                                          ),
-                                          Text(
-                                            tResetViaPhone,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge,
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
+                      ForgetPasswordScreen.buildShowModalBottomSheet(context);
                     },
                     child: const Text(tForgetPassword),
                   ),
@@ -282,6 +176,55 @@ class _SignInState extends State<SignIn> {
           ),
         )
       ],
+    );
+  }
+}
+
+class ForgetPasswordBtnWidget extends StatelessWidget {
+  const ForgetPasswordBtnWidget({
+    required this.btnIcon,
+    required this.title,
+    required this.subTitle,
+    required this.onTap,
+    Key? key,
+  }) : super(key: key);
+
+  final IconData btnIcon;
+  final String title, subTitle;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(20.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.grey.shade200,
+        ),
+        child: Row(
+          children: [
+            Icon(btnIcon, size: 50),
+            SizedBox(
+              width: 20,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                Text(
+                  subTitle,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
