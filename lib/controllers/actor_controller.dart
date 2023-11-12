@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:namer_app/entities/sector.dart';
+import 'package:namer_app/entities/sub_sector.dart';
 import 'package:namer_app/repositories/actor_repository.dart';
 
 import '../entities/actor.dart';
@@ -8,22 +10,52 @@ class ActorController extends GetxController {
 
   final _actorRepo = Get.put(ActorRepository());
 
-  // final tin = TextEditingController();
-  // final name = TextEditingController();
-  // final birthDate = TextEditingController();
-  // final actorType = TextEditingController();
-  // final sector = TextEditingController();
-  // final ratings = TextEditingController();
-
-  // Future<Actor> getActorDetails() {
-  //   final name = _actorRepo.
-  // } createActor
-
   Future<void> createActor(Actor actor) async {
     await _actorRepo.createActor(actor);
   }
 
   Future<List<Actor>> getAllActors() async {
-    return await _actorRepo.allActors();
+    final List<Actor> actors = await _actorRepo.allActors();
+    return actors;
+  }
+
+  // This Function will get Actor from the database, if it doesn't exist, it will create it.
+  Future<Actor?> createOrGetActor(String actorName) async {
+    // First, We will check if the Actor exists in the database or not:
+    Actor emptyActor = Actor(
+      id: '',
+      tin: '',
+      name: '',
+      address: '',
+      birthDate: DateTime.now(),
+      actorType: '',
+      sector: Sector('', '', SubSector('', '')),
+      ratings: [],
+    );
+
+    final existingActors = await _actorRepo.allActors();
+    final existingActor = existingActors.firstWhere(
+        (actor) => actor.name.toLowerCase() == actorName.toLowerCase(),
+        orElse: () => emptyActor);
+
+    if (existingActor != emptyActor) {
+      return existingActor;
+    } else {
+      // in this case the actor doesn't exists, we will create a new one
+      final newActor = Actor(
+        id: '',
+        tin: '',
+        name: actorName,
+        address: '',
+        birthDate: DateTime.now(),
+        actorType: '',
+        sector: Sector('', '', SubSector('', '')),
+        ratings: [],
+      );
+
+      // before creating the newActor here, we have to delete the emptyActor
+      await _actorRepo.createActor(newActor);
+      return newActor;
+    }
   }
 }

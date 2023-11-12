@@ -14,7 +14,7 @@ class ActorRepository extends GetxController {
 // Create an Actor and add it to the database
   createActor(Actor actor) async {
     await _db
-        .collection("Actors")
+        .collection("Actor")
         .add(actor.toJson())
         .whenComplete(
           () => Get.snackbar("Succes", "An Actor has been created successfuly.",
@@ -36,7 +36,7 @@ class ActorRepository extends GetxController {
 
   // Fetch all Actors
   Future<List<Actor>> allActors() async {
-    final snapshot = await _db.collection("Actors").get();
+    final snapshot = await _db.collection("Actor").get();
     final actorData = snapshot.docs.map((e) => Actor.fromSnapshot(e)).toList();
     return actorData;
   }
@@ -51,7 +51,7 @@ class ActorRepository extends GetxController {
       Sector sector,
       List<Rating> ratings) async {
     final snapshot =
-        await _db.collection("Actors").where("Name", isEqualTo: name).get();
+        await _db.collection("Actor").where("Name", isEqualTo: name).get();
     final actorData = snapshot.docs.map((e) => Actor.fromSnapshot(e)).single;
     return actorData;
   }

@@ -17,7 +17,7 @@ class QuickRatePage extends StatefulWidget {
 }
 
 class _QuickRatePageState extends State<QuickRatePage> {
-  final actorController = TextEditingController();
+  // Consider using ActorController
 
   static const List<String> listItems = <String>['Apple', 'Banana', 'Peach'];
   late final TextEditingController _ratingController;
@@ -40,7 +40,8 @@ class _QuickRatePageState extends State<QuickRatePage> {
   @override
   Widget build(BuildContext context) {
     final ratingController = Get.put(RatingController());
-    final actorController = Get.put(ActorController());
+    Get.put(ActorController());
+    final actorController = Get.find<ActorController>();
     final performanceController = TextEditingController();
     return SingleChildScrollView(
       child: Column(children: [
@@ -108,14 +109,13 @@ class _QuickRatePageState extends State<QuickRatePage> {
                                   itemFilter: (item, query) {
                                     return item.name
                                         .toLowerCase()
-                                        .contains(query.toLowerCase());
+                                        .startsWith(query.toLowerCase());
                                   },
                                   itemSorter: (a, b) {
                                     return a.name.compareTo(b.name);
                                   },
                                   itemSubmitted: (item) {
                                     setState(() {
-                                      actorController.createActor(item);
                                       selectedValue = item.name;
                                     });
                                   },
@@ -124,6 +124,16 @@ class _QuickRatePageState extends State<QuickRatePage> {
                                       padding: EdgeInsets.all(10.0),
                                       child: Text(item.name),
                                     );
+                                  },
+                                  textChanged: (actorName) async {
+                                    // When text changes, create or get the actor and set it as the selected value
+                                    final actor = await actorController
+                                        .createOrGetActor(actorName);
+                                    if (actor != null) {
+                                      setState(() {
+                                        selectedValue = actor.name;
+                                      });
+                                    }
                                   },
                                 );
                               }

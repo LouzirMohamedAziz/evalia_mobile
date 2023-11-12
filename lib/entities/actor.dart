@@ -4,7 +4,7 @@ import 'package:namer_app/entities/rating.dart';
 import 'sector.dart';
 
 class Actor {
-  final String id;
+  final String? id;
   final String tin;
   final String name;
   final String address;
