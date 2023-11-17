@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:namer_app/entities/rating.dart';
+import 'package:namer_app/entities/sub_sector.dart';
 
 import 'sector.dart';
 
@@ -39,13 +40,17 @@ class Actor {
     final data = document.data();
     return Actor(
       id: document.id,
-      tin: data?["Tin"],
-      name: data?["Name"],
-      address: data?["Address"],
-      birthDate: data?["BirthDate"],
-      actorType: data?["actorType"],
-      sector: data?["Sector"],
-      ratings: data?["Ratings"],
+      tin: data?["Tin"] ?? "", // Providing an empty string as the default value
+      name: data?["Name"] ?? "",
+      address: data?["Address"] ?? "",
+      birthDate: data?["BirthDate"] ?? DateTime.now(),
+      actorType: data?["actorType"] ?? "",
+      sector: data?["Sector"] ??
+          Sector(
+              id: '',
+              sectorName: '',
+              subSector: SubSector(id: '', subSectorName: '')),
+      ratings: [],
     );
   }
 }

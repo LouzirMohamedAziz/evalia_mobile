@@ -29,7 +29,10 @@ class ActorController extends GetxController {
       address: '',
       birthDate: DateTime.now(),
       actorType: '',
-      sector: Sector('', '', SubSector('', '')),
+      sector: Sector(
+          id: '',
+          sectorName: '',
+          subSector: SubSector(id: '', subSectorName: '')),
       ratings: [],
     );
 
@@ -49,7 +52,10 @@ class ActorController extends GetxController {
         address: '',
         birthDate: DateTime.now(),
         actorType: '',
-        sector: Sector('', '', SubSector('', '')),
+        sector: Sector(
+            id: '',
+            sectorName: '',
+            subSector: SubSector(id: '', subSectorName: '')),
         ratings: [],
       );
 

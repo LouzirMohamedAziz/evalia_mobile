@@ -45,7 +45,7 @@ class Rating {
         ratingComment: data?["RatingComment"],
         score: data?["Score"],
         rater: data?["Rater"],
-        professional: data?["Professional"],
+        professional: data?["Professional"] ?? Professional,
         performance: data?["Performance"],
         indicator: data?["Indicator"],
         sector: data?["Sector"]);
