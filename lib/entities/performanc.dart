@@ -1,1 +1,1 @@
-enum Performance { envioronmental, social, economical }
+enum Performance { environmental, social, economical }

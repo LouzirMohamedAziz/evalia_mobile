@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:namer_app/controllers/rating_controller.dart';
 import 'package:namer_app/entities/professiona.dart';
 
-import '../reusable/custom_dropdown_textfield.dart';
+import '../../constants/colors.dart';
+import '../../reusable/custom_dropdown_textfield.dart';
 
 class RatingsPage extends StatefulWidget {
   @override
@@ -39,34 +42,30 @@ class _RatingsPageState extends State<RatingsPage> {
     //   fontWeight: FontWeight.bold,
     //   color: Color.fromARGB(255, 255, 255, 255),
     // );
+    final controller = Get.put(RatingController());
+    final _formKey = GlobalKey<FormState>();
 
-    return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-        Color.fromARGB(255, 132, 202, 240),
-        Color.fromARGB(255, 53, 135, 206),
-        Color.fromARGB(255, 7, 106, 160),
-        Color.fromARGB(255, 13, 58, 82)
-      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-              padding: const EdgeInsets.all(20.0),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Form(
+              key: _formKey,
               child: Column(
                 children: [
                   SizedBox(
-                    height: 50,
+                    height: 60,
                   ),
-                  Text("Select Actor By",
+                  Text("Ratings Form",
                       style: TextStyle(
-                        color: Color.fromARGB(160, 255, 255, 255),
+                        color: mainEvaliaColor,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                       )),
                   SizedBox(
-                    height: 20,
+                    height: 60,
                   ),
                   CustomDropdownTextField(
                     text: 'Actor Name',
@@ -92,22 +91,32 @@ class _RatingsPageState extends State<RatingsPage> {
                   SizedBox(
                     height: 10,
                   ),
-                  CustomDropdownTextField(
-                    text: 'Territorial scale',
-                    icon: Icons.category,
-                    dropdownItems: ['National', 'Regional', 'Local'],
-                    selectedValue: _territorialScaleTextController.text,
-                    onChanged: (newValue) {
-                      _territorialScaleTextController.text = newValue ?? '';
-                    },
-                  ),
+                  // CustomDropdownTextField(
+                  //   text: 'Territorial scale',
+                  //   icon: Icons.category,
+                  //   dropdownItems: ['National', 'Regional', 'Local'],
+                  //   selectedValue: _territorialScaleTextController.text,
+                  //   onChanged: (newValue) {
+                  //     _territorialScaleTextController.text = newValue ?? '';
+                  //   },
+                  // ),
                   SizedBox(
                     height: 10,
                   ),
                   CustomDropdownTextField(
                     text: 'Sector',
                     icon: Icons.add_shopping_cart_outlined,
-                    dropdownItems: ['Sector1', 'Sector2', 'Sector3'],
+                    dropdownItems: [
+                      'Health',
+                      'Governance',
+                      'Defense',
+                      'Culture',
+                      'Food',
+                      'Transportation',
+                      'Automobile',
+                      'Telco',
+                      'Technology'
+                    ],
                     selectedValue: _sectorNameTextController.text,
                     onChanged: (newValue) {
                       _sectorNameTextController.text = newValue ?? '';
@@ -128,22 +137,22 @@ class _RatingsPageState extends State<RatingsPage> {
                   SizedBox(
                     height: 10,
                   ),
-                  CustomDropdownTextField(
-                    text: 'Country',
-                    icon: Icons.account_balance_outlined,
-                    dropdownItems: ['Tunisia', 'Algeria', 'Morocco'],
-                    selectedValue: _countryTextController.text,
-                    onChanged: (newValue) {
-                      _countryTextController.text = newValue ?? '';
-                    },
-                  ),
                   SizedBox(
                     height: 10,
                   ),
                   CustomDropdownTextField(
                     text: 'Governorate',
                     icon: Icons.business_outlined,
-                    dropdownItems: ['Tunis', 'Ariana', 'Ben Arous'],
+                    dropdownItems: [
+                      'Tunis',
+                      'Ariana',
+                      'Ben Arous',
+                      'Nabeul',
+                      'Bizerte',
+                      'El Kef',
+                      'Sousse',
+                      'Sfax'
+                    ],
                     selectedValue: _governorateTextController.text,
                     onChanged: (newValue) {
                       _governorateTextController.text = newValue ?? '';
@@ -162,7 +171,7 @@ class _RatingsPageState extends State<RatingsPage> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -175,15 +184,15 @@ class _RatingsPageState extends State<RatingsPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => SearchResultsPage(),
+                                  builder: (context) =>
+                                      RatingsSearchResultsPage(),
                                 ),
                               );
                             },
                             icon: Icon(Icons.loop),
                             label: Text('Search'),
                             style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    Color.fromARGB(255, 63, 115, 141),
+                                backgroundColor: mainEvaliaColor,
                                 foregroundColor:
                                     Color.fromARGB(255, 255, 255, 255),
                                 textStyle: TextStyle(
@@ -193,19 +202,20 @@ class _RatingsPageState extends State<RatingsPage> {
                     ],
                   ),
                 ],
-              ))
-        ],
-      ),
+              ),
+            ))
+      ],
     );
   }
 }
 
-class SearchResultsPage extends StatefulWidget {
+class RatingsSearchResultsPage extends StatefulWidget {
   @override
-  _SearchResultsPageState createState() => _SearchResultsPageState();
+  _RatingsSearchResultsPageState createState() =>
+      _RatingsSearchResultsPageState();
 }
 
-class _SearchResultsPageState extends State<SearchResultsPage> {
+class _RatingsSearchResultsPageState extends State<RatingsSearchResultsPage> {
   List<Professional> searchResults =
       []; // Populate this list with search results
 

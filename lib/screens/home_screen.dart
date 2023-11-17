@@ -1,12 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:namer_app/screens/authentication/sign_in.dart';
-import 'package:provider/provider.dart';
+import 'package:namer_app/screens/sign_in_sign_up/sign_in.dart';
 
-import '../main.dart';
-import '../reusable/reusable_widget.dart';
-import 'indicators_screen.dart';
-import 'ratings_screen.dart';
+import '../constants/images.dart';
+import '../constants/texts.dart';
+import '../reusable/evalia_main_title.dart';
+import 'profile/profile_screen.dart';
+import 'ratings/indicators_screen.dart';
+import 'ratings/quick_rate.dart';
+import 'ratings/ratings_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -15,6 +17,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
+  static const List<String> listItems = <String>['Apple', 'Banana', 'Peach'];
 
   @override
   void initState() {
@@ -34,7 +37,9 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
       RatingsPage(),
-      IndicatorsPage()
+      IndicatorsPage(),
+      QuickRatePage(),
+      ProfilePage(),
     ];
     return Scaffold(
       body: _pages[_currentIndex],
@@ -52,11 +57,19 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.rate_review_outlined),
             label: 'Indicators',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add),
+            label: 'Quick Rate',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outlined),
+            label: 'Account',
+          ),
         ],
         currentIndex: _currentIndex,
-        selectedItemColor: Color.fromARGB(255, 255, 255, 255),
-        unselectedItemColor: Color.fromARGB(255, 170, 214, 238),
-        backgroundColor: Color.fromARGB(255, 13, 58, 82),
+        selectedItemColor: Color.fromRGBO(13, 110, 236, 1),
+        unselectedItemColor: Color.fromRGBO(0, 75, 141, 1),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         onTap: (index) {
           setState(() {
             _currentIndex = index;
@@ -67,101 +80,91 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends StatefulWidget {
   final int currentIndex;
   final Function(int) updateIndex;
 
   WelcomePage({required this.currentIndex, required this.updateIndex});
 
-  IconData iconRatings = Icons.star_rate_rounded;
-  IconData iconIndicators = Icons.rate_review_rounded;
+  @override
+  _WelcomePageState createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage> {
+  List<String> items = [
+    'Item 3',
+    'Item 3',
+    'Item 3',
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 1',
+    'Item 2',
+    'Item 3'
+  ];
+
+  Future<void> _refreshList() async {
+    await Future.delayed(Duration(seconds: 2));
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 132, 202, 240),
-            Color.fromARGB(255, 53, 135, 206),
-            Color.fromARGB(255, 7, 106, 160),
-            Color.fromARGB(255, 13, 58, 82),
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
-      ),
-      child: Column(
-        children: [
-          AppBar(
-            title: Text('Welcome to Evalia'),
-            titleTextStyle: TextStyle(
-              color: Color.fromARGB(255, 4, 56, 71),
-              fontSize: 30,
-            ),
-            centerTitle: true,
-            backgroundColor: Color.fromARGB(255, 92, 173, 216),
-            actions: [
-              IconButton(
-                icon: Icon(
-                  Icons.logout,
-                  color: Color.fromARGB(255, 4, 56, 71),
-                ),
-                onPressed: () {
-                  FirebaseAuth.instance.signOut().then((value) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignIn()),
-                    );
-                  });
-                },
-              ),
-            ],
-          ),
-          SizedBox(height: 50),
-          Container(
-            margin: EdgeInsets.only(top: 30),
-            width: 220,
-            height: 130,
-            child: logoWidget("assets/images/evalia_logo_old.png"),
-          ),
-          SizedBox(height: 150),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                    updateIndex(1); // Navigate to RatingsPage
-                  },
-                  icon: Icon(iconRatings),
-                  label: Text('Ratings'),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                    textStyle: TextStyle(fontSize: 20),
-                    backgroundColor: Color.fromARGB(200, 255, 255, 255),
+    return RefreshIndicator(
+      onRefresh: _refreshList,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            AppBar(
+              actions: [
+                IconButton(
+                  icon: Icon(
+                    Icons.logout,
+                    color: Color.fromARGB(255, 4, 56, 71),
                   ),
-                ),
-                SizedBox(height: 50),
-                ElevatedButton.icon(
                   onPressed: () {
-                    updateIndex(2); // Navigate to IndicatorsPage
+                    FirebaseAuth.instance.signOut().then((value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignIn()),
+                      );
+                    });
                   },
-                  icon: Icon(iconIndicators),
-                  label: Text('Indicators'),
-                  style: ElevatedButton.styleFrom(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                      textStyle: TextStyle(fontSize: 20),
-                      backgroundColor: Color.fromARGB(200, 255, 255, 255)),
                 ),
               ],
             ),
-          ),
-        ],
+            Image(
+              image: AssetImage(tFullEvaliaImage),
+              width: 200,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            EvaliaTitleText(
+              text: slogan,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+            // Autocomplete<String>(
+            //   optionsBuilder: (TextEditingValue (textEditingValue) {
+            //     if(textEditingValue.text == '' ) {
+            //       return const Iterable<String>.empty();
+            //     }
+            //     return listItems.where(String item) {
+            //       return item.contains(textEditing)
+            //     }
+            //   }),
+            // )
+            // ListView.builder(
+            //   shrinkWrap: true,
+            //   itemCount: items.length,
+            //   itemBuilder: (context, index) {
+            //     final item = items[index];
+            //     return ListTile(title: Text(item));
+            //   },
+            // ),
+          ],
+        ),
       ),
     );
   }

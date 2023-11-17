@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>796639073022-024c3r99b3l9fa13quhcnr2jv6ujb912.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.796639073022-024c3r99b3l9fa13quhcnr2jv6ujb912</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCfe_vGKNg1OMcFSrU_pq0mn3PSVe-W-TM</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mal.signinsignup</string>
+	<string>com.example.evaliaflutter</string>
 	<key>PROJECT_ID</key>
 	<string>signinsignup-dad5a</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:796639073022:ios:fda2da3cc71ac4774f8baf</string>
+	<string>1:796639073022:ios:41e14be695cfa8484f8baf</string>
 </dict>
 </plist>
