@@ -1,11 +1,9 @@
-import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:namer_app/controllers/actor_controller.dart';
 import 'package:namer_app/controllers/rating_controller.dart';
-import 'package:namer_app/entities/actor.dart';
 
 import '../../constants/colors.dart';
 
@@ -89,57 +87,57 @@ class _QuickRatePageState extends State<QuickRatePage> {
                         SizedBox(
                           width: 10,
                         ),
-                        Expanded(
-                          child: FutureBuilder<List<Actor>>(
-                            future: actorController.getAllActors(),
-                            builder: (context, snapshot) {
-                              if (snapshot.connectionState ==
-                                  ConnectionState.waiting) {
-                                return CircularProgressIndicator(
-                                  color: tWhiteColor,
-                                ); // You can replace this with a loading indicator
-                              } else if (snapshot.hasError) {
-                                return Text('Error: ${snapshot.error}');
-                              } else {
-                                return AutoCompleteTextField<Actor>(
-                                  key: GlobalKey<
-                                      AutoCompleteTextFieldState<Actor>>(),
-                                  clearOnSubmit: false,
-                                  suggestions: snapshot.data!,
-                                  itemFilter: (item, query) {
-                                    return item.name
-                                        .toLowerCase()
-                                        .startsWith(query.toLowerCase());
-                                  },
-                                  itemSorter: (a, b) {
-                                    return a.name.compareTo(b.name);
-                                  },
-                                  itemSubmitted: (item) {
-                                    setState(() {
-                                      selectedValue = item.name;
-                                    });
-                                  },
-                                  itemBuilder: (context, item) {
-                                    return Container(
-                                      padding: EdgeInsets.all(10.0),
-                                      child: Text(item.name),
-                                    );
-                                  },
-                                  textChanged: (actorName) async {
-                                    // When text changes, create or get the actor and set it as the selected value
-                                    final actor = await actorController
-                                        .createOrGetActor(actorName);
-                                    if (actor != null) {
-                                      setState(() {
-                                        selectedValue = actor.name;
-                                      });
-                                    }
-                                  },
-                                );
-                              }
-                            },
-                          ),
-                        ),
+                        // Expanded(
+                        //   child: FutureBuilder<List<Actor>>(
+                        //     future: actorController.getAllActors(),
+                        //     builder: (context, snapshot) {
+                        //       if (snapshot.connectionState ==
+                        //           ConnectionState.waiting) {
+                        //         return CircularProgressIndicator(
+                        //           color: tWhiteColor,
+                        //         ); // You can replace this with a loading indicator
+                        //       } else if (snapshot.hasError) {
+                        //         return Text('Error: ${snapshot.error}');
+                        //       } else {
+                        //         return AutoCompleteTextField<Actor>(
+                        //           key: GlobalKey<
+                        //               AutoCompleteTextFieldState<Actor>>(),
+                        //           clearOnSubmit: false,
+                        //           suggestions: snapshot.data!,
+                        //           itemFilter: (item, query) {
+                        //             return item.name
+                        //                 .toLowerCase()
+                        //                 .startsWith(query.toLowerCase());
+                        //           },
+                        //           itemSorter: (a, b) {
+                        //             return a.name.compareTo(b.name);
+                        //           },
+                        //           itemSubmitted: (item) {
+                        //             setState(() {
+                        //               selectedValue = item.name;
+                        //             });
+                        //           },
+                        //           itemBuilder: (context, item) {
+                        //             return Container(
+                        //               padding: EdgeInsets.all(10.0),
+                        //               child: Text(item.name),
+                        //             );
+                        //           },
+                        //           textChanged: (actorName) async {
+                        //             // When text changes, create or get the actor and set it as the selected value
+                        //             final actor = await actorController
+                        //                 .createOrGetActor(actorName);
+                        //             if (actor != null) {
+                        //               setState(() {
+                        //                 selectedValue = actor.name;
+                        //               });
+                        //             }
+                        //           },
+                        //         );
+                        //       }
+                        //     },
+                        //   ),
+                        // ),
                       ],
                     ),
                   ],

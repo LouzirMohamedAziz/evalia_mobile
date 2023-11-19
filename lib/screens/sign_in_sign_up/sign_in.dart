@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:namer_app/screens/sign_in_sign_up/forget_password_model_botton_sheet.dart';
@@ -19,12 +18,13 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   TextEditingController _passwordTextController = TextEditingController();
-  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _userNameTextController = TextEditingController();
+  final String signURL = 'http://localhost/api/auth/administrator/signin';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: SingleChildScrollView(
@@ -60,15 +60,15 @@ class _SignInState extends State<SignIn> {
                   height: 50,
                 ),
                 textField(
-                  "Enter your E-mail",
+                  "Identifier",
                   Icons.person_outline,
-                  _emailTextController,
+                  _userNameTextController,
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 passwordtextField(
-                  "Enter your Password",
+                  "Password",
                   Icons.lock_outline,
                   true,
                   _passwordTextController,
@@ -91,21 +91,21 @@ class _SignInState extends State<SignIn> {
                   height: 25,
                 ),
                 signInSignUpButton(context, true, () {
-                  FirebaseAuth.instance
-                      .signInWithEmailAndPassword(
-                    email: _emailTextController.text,
-                    password: _passwordTextController.text,
-                  )
-                      .then((value) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyHomePage(),
-                      ),
-                    );
-                  }).catchError((error, stackTrace) {
-                    print("Error ${error.toString()}");
-                  });
+                  // FirebaseAuth.instance
+                  //     .signInWithEmailAndPassword(
+                  //   email: _emailTextController.text,
+                  //   password: _passwordTextController.text,
+                  // )
+                  //     .then((value) {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => MyHomePage(),
+                  //     ),
+                  //   );
+                  // }).catchError((error, stackTrace) {
+                  //   print("Error ${error.toString()}");
+                  // });
                 }),
                 SizedBox(
                   height: 10,
