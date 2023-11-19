@@ -10,6 +10,8 @@ class ActorRepository extends GetxController {
   static ActorRepository get instance => Get.find();
 
   final _db = FirebaseFirestore.instance;
+  final String actorsURL =
+      'http://localhost/api/services/profile/professionals';
 
 // Create an Actor and add it to the database
   createActor(Actor actor) async {

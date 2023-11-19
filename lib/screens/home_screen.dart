@@ -1,9 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:namer_app/data/bearer_token.dart';
+import 'package:namer_app/data/country_api.dart';
 import 'package:namer_app/screens/sign_in_sign_up/sign_in.dart';
 
 import '../constants/images.dart';
 import '../constants/texts.dart';
+import '../entities/country.dart';
 import '../reusable/evalia_main_title.dart';
 import 'profile/profile_screen.dart';
 import 'ratings/indicators_screen.dart';
@@ -17,7 +20,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
-  static const List<String> listItems = <String>['Apple', 'Banana', 'Peach'];
 
   @override
   void initState() {
@@ -91,80 +93,96 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  List<String> items = [
-    'Item 3',
-    'Item 3',
-    'Item 3',
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 1',
-    'Item 2',
-    'Item 3'
-  ];
+  late List<Country> countriesList = [];
+  late String bearerToken;
 
-  Future<void> _refreshList() async {
-    await Future.delayed(Duration(seconds: 2));
-    setState(() {});
+  // Future<void> _refreshList() async {
+  //   await Future.delayed(Duration(seconds: 2));
+  //   setState(() {});
+  // }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchBearerToken();
+  }
+
+  Future<void> fetchBearerToken() async {
+    try {
+      bearerToken = await BearerToken.getBearerToken();
+      if (bearerToken.isNotEmpty) {
+        getCountriesFromApi();
+      } else {
+        print('Bearer token is empty or not available');
+      }
+    } catch (e) {
+      print('Error fetching bearer token: $e');
+    }
+  }
+
+  void getCountriesFromApi() async {
+    try {
+      final response = await CountryApi.getCountries(bearerToken);
+      setState(() {
+        countriesList = response;
+      });
+    } catch (error) {
+      print('Error fetching countries: $error');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-      onRefresh: _refreshList,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            AppBar(
-              actions: [
-                IconButton(
-                  icon: Icon(
-                    Icons.logout,
-                    color: Color.fromARGB(255, 4, 56, 71),
-                  ),
-                  onPressed: () {
-                    FirebaseAuth.instance.signOut().then((value) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignIn()),
-                      );
-                    });
-                  },
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          AppBar(
+            actions: [
+              IconButton(
+                icon: Icon(
+                  Icons.logout,
+                  color: Color.fromARGB(255, 4, 56, 71),
                 ),
-              ],
+                onPressed: () {
+                  FirebaseAuth.instance.signOut().then((value) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignIn()),
+                    );
+                  });
+                },
+              ),
+            ],
+          ),
+          Image(
+            image: AssetImage(tFullEvaliaImage),
+            width: 200,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          EvaliaTitleText(
+            text: slogan,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          SizedBox(
+            height: 500,
+            child: ListView.builder(
+              itemCount: countriesList.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(countriesList[index].name),
+                  subtitle: Text(countriesList[index].isoCode),
+                  leading: CircleAvatar(backgroundColor: Colors.blue),
+                );
+              },
             ),
-            Image(
-              image: AssetImage(tFullEvaliaImage),
-              width: 200,
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            EvaliaTitleText(
-              text: slogan,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-            // Autocomplete<String>(
-            //   optionsBuilder: (TextEditingValue (textEditingValue) {
-            //     if(textEditingValue.text == '' ) {
-            //       return const Iterable<String>.empty();
-            //     }
-            //     return listItems.where(String item) {
-            //       return item.contains(textEditing)
-            //     }
-            //   }),
-            // )
-            // ListView.builder(
-            //   shrinkWrap: true,
-            //   itemCount: items.length,
-            //   itemBuilder: (context, index) {
-            //     final item = items[index];
-            //     return ListTile(title: Text(item));
-            //   },
-            // ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

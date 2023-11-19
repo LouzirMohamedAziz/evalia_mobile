@@ -9,6 +9,7 @@ environment:
   sdk: ">=2.17.0 <3.0.0"  # Specify the Dart SDK version range here
 
 dependencies:
+  http: ^1.1.0
   flutter:
     sdk: flutter
   autocomplete_textfield: ^2.0.1
